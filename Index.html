@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PopProp (POP) - Real Estate Meets Meme Culture</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PopProp - Real Estate Meets Meme Culture</title>
   <style>
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    body, html {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      width: 100vw;
+      width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       background-color: #000;
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      text-align: center;
     }
     img {
       width: 100%;
-      height: 100%;
+      height: auto;
+      max-height: 80%;
       object-fit: cover;
+    }
+    .text-box {
+      margin: 20px;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 8px;
+      max-width: 90%;
     }
   </style>
 </head>
 <body>
-  <img src="https://corbinkentucky.github.io/popprop-website/popprop-image.png" alt="PopProp Illustration">
+  <div class="text-box">
+    <p>PopProp (POP) forges an innovative bridge between real-world real estate markets and the meme revolution. With transparent asset backing, attractive staking yields, and engaging branding—developed by a German team—POP is ideally positioned to lead the next wave of Real-world-asset tokens on Solana.</p>
+    <p>Join the PopProp community and discover how memes can create real value!</p>
+  </div>
+  <img src="popprop-image.png" alt="PopProp Illustration">
 </body>
 </html>
