@@ -40,9 +40,39 @@
       max-width: 90%;
       font-size: 16px;
     }
+    audio {
+      display: none;
+    }
+    .play-button {
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
+  <audio id="bg-music" loop>
+    <source src="popprop-melody.mp3" type="audio/mpeg">
+    <source src="popprop-melody.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+  </audio>
+  <button class="play-button" onclick="playAudio();">Sound einschalten</button>
+  <script>
+    function playAudio() {
+      var audio = document.getElementById('bg-music');
+      try {
+        audio.play();
+        alert('Sound eingeschaltet!');
+      } catch (e) {
+        alert('Audio konnte nicht abgespielt werden: ' + e.message);
+      }
+    }
+  </script>
   <div class="hero">
     <img src="popprop-image.png" alt="PopProp Illustration">
   </div>
