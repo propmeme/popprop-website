@@ -1,101 +1,80 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PopProp – Real Estate Meets Meme Culture</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-    /* Base styles */
     body, html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      background-color: #800080;
-      color: #FFFFFF;
-      font-family: 'Press Start 2P', cursive;
-      text-align: center;
-      overflow-y: auto;
+      margin: 0; padding: 0;
+      width: 100%; background: #800080;
+      color: #fff; font-family: 'Press Start 2P', cursive;
+      text-align: center; overflow-y: auto;
     }
-    img {
-      width: 100%;
-      height: auto;
-      max-width: 100%;
-      object-fit: cover;
+    img { width: 100%; max-width: 100%; height: auto; object-fit: cover; }
+    .hero { display: flex; justify-content: center; align-items: center; flex-direction: column; }
+    .story { margin: 20px auto; padding: 20px; max-width: 800px; }
+    .link-box { margin: 20px auto; padding: 10px; font-size: 18px;
+      background: #4B0082; color: #fff; border-radius: 8px;
+      display: inline-block; text-decoration: none;
     }
+    .roadmap { background: #4B0082; padding: 40px 20px; margin-top: 40px; }
+    .roadmap h2 { font-size: 24px; margin-bottom: 20px; }
+    .roadmap-list { list-style: none; padding: 0; margin: 0 auto; max-width: 800px; }
+    .roadmap-list li { display: flex; align-items: baseline; margin-bottom: 15px; }
+    .roadmap-list .quarter { flex: 0 0 120px; font-weight: bold; }
+    .roadmap-list .milestone { flex: 1; padding-left: 10px; border-left: 2px solid #fff;
+      text-align: left; line-height: 1.4; }
 
-    /* Hero section */
-    .hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    /* Story sections */
-    .story {
-      margin: 20px auto;
-      padding: 20px;
-      max-width: 800px;
-      color: #FFFFFF;
-    }
-
-    /* Link button */
-    .link-box {
-      margin: 20px auto;
-      padding: 10px;
-      font-size: 18px;
-      background-color: #4B0082;
-      color: #FFFFFF;
-      border-radius: 8px;
-      display: inline-block;
-      text-decoration: none;
-    }
-
-    /* Roadmap styling */
-    .roadmap {
-      background-color: #4B0082;
+    .label-top-left {
+      position: absolute;
+      top: 5px; left: 10px;
+      font-size: 40px;
       color: #fff;
-      padding: 40px 20px;
-      margin-top: 40px;
     }
-    .roadmap h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
+
+    .label-top-right {
+      position: absolute;
+      top: 5px; right: 10px;
     }
-    .roadmap-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      max-width: 800px;
+    .label-top-right a {
+      font-size: 70px;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 35px;
+      background-color: #4B0082;
+      border: 3px solid #fff;
+      border-radius: 12px;
+      transition: background-color 0.3s, transform 0.2s;
+      display: inline-block;
     }
-    .roadmap-list li {
-      display: flex;
-      align-items: baseline;
-      margin-bottom: 15px;
+    .label-top-right a:hover {
+      background-color: #6a0dad;
+      transform: scale(1.05);
     }
-    .roadmap-list .quarter {
-      flex: 0 0 120px;
-      font-weight: bold;
+
+    .follow-x {
+      margin: 20px auto;
     }
-    .roadmap-list .milestone {
-      flex: 1;
-      padding-left: 10px;
-      border-left: 2px solid #fff;
-      text-align: left;
-      line-height: 1.4;
+    .follow-x img {
+      width: 100px; opacity: 0.8; border: none;
     }
   </style>
 </head>
 <body>
 
   <!-- Top-left label -->
-  <div style="position: absolute; top: 5px; left: 10px; font-size: 20px;">
-    <span style="font-size: 10px; color: #FFFFFF;">The first RWA Meme Coin</span>
+  <div class="label-top-left">
+    The first RWA Meme Coin
   </div>
 
-  <!-- Hero image -->
+  <!-- Top-right DAPP button -->
+  <div class="label-top-right">
+    <a href="#" onclick="document.getElementById('dappModal').style.display='flex'">DAPP</a>
+  </div>
+
+  <!-- Hero -->
   <div class="hero">
     <img src="popprop-image.png" alt="PopProp Illustration">
   </div>
@@ -105,51 +84,47 @@
     <h2>PopProp – Real Estate Meets Meme Culture</h2>
     <p>PopProp (POP) forges an innovative bridge between real-world real estate markets and the meme revolution. With transparent asset backing, attractive staking yields, and engaging branding—developed by a German team—POP is ideally positioned to lead the next wave of real-world asset tokens on Solana.</p>
     <p>Join the PopProp community and discover how memes can create real value!</p>
-    <div class="link-box">
-      <a href="https://pump.fun/coin/6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump" target="_blank">
-        Visit PopProp on Pump.fun
-      </a>
-    </div>
-    <div style="text-align: center; margin: 20px;">
+    <a class="link-box" href="https://pump.fun/coin/6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump" target="_blank">
+      Visit PopProp on Pump.fun
+    </a>
+    <div class="follow-x">
       <a href="https://x.com/propmeme1" target="_blank">
-        <img src="x-icon.png" alt="Follow on X" style="width: 100px; opacity: 0.8; border: none;">
+        <img src="x-icon.png" alt="Follow on X">
       </a>
     </div>
   </div>
 
-  <!-- Story of PopProp City -->
+  <!-- Short Story of PopProp City -->
   <div class="story">
     <h2>The Tale of PopProp City</h2>
-    <p>Once upon a time, there was a city built on honest Real-World Assets (RWA) – solid houses and business buildings, each symbolizing true value: a small house, softly glowing, represented modest but secure ownership; a towering office building embodied large enterprises, and in between resided more residential and commercial blocks, all together forming the backbone of this city.</p>
-    <p>But one day, a mysterious glow appeared behind the clouds: the radiant Solana logo, shimmering in purple and neon green beams across the sky. Under this light, a soft whisper stirred in the bushes – three cats scurried out, their eyes bright and curious, as if they had caught the digital murmurs of the internet.</p>
-    <p>Then Pepe, the mischievous frog, appeared with a broad grin and sparkling eyes. He was the epitome of a meme, the essence of the internet: playful, spontaneous, and unpredictable. “Hello, dear city of RWA!” Pepe called out. “I am the meme – light as air yet powerful enough to make entire online worlds dance.”</p>
-    <p>Hesitantly, the buildings opened their large, friendly eyes. The little house chuckled: “What are you doing here, you colorful frog?” Pepe hopped closer and sat on the edge of a bush. “I want to make your solid world swing a little. With a touch of humor, virality, and creative energy!”</p>
-    <p>The office towers leaned in curiously. “Creative energy?” they murmured. “What will that trigger?” Pepe winked and spun a thread of ideas: NFTs as digital mementos of our city, community events where meme competitions bring together real investors and fans, and even small grants (“Meme-Grants”) to support daring artists working at the intersection of reality and virality.</p>
-    <p>At that moment, a beam from the Solana logo hit the roof of the largest block. An electrifying glow spread through the city: smart contracts making goods movement transparent, tokens breaking real assets into small, tradable fractions, and meme-dApps giving each transaction a playful twist.</p>
-    <p>The cats meowed in approval, Pepe clapped his hands (or rather, his froggy hands) with excitement, and the buildings breathed a sigh of relief. A new era began, where hard values and light-hearted humor walked hand in hand – real assets and memes merged into something greater than both: a vibrant, creative economy offering both stability and playfulness.</p>
-    <p>Thus, RWA met Meme, Solana provided the drive, and the city awakened to a colorful, harmonious hum – ready to conquer the world with its unique blend of substance and fun.</p>
+    <p>“You’ve got buildings, we’ve got buzz,” said Pepe.  
+    “Let’s turn it into tokens.”</p>
+    <p>The buildings blinked.  
+    “And what do we get out of it?”</p>
+    <p><strong>BONK</strong> burst through the window – loud, bold, full of energy.  
+    He barked excitedly:  
+    <em>“On the Solana chain, we bring to life what used to be just PowerPoint!”</em></p>
+    <p>Pepe grinned: “Staking. NFTs. Memes. And BONK. Lots of BONK.”</p>
+    <p>Since then, PopProp City has become a place where real estate meets internet culture – powered by Solana, fueled by the memeconomy.</p>
   </div>
 
-  <!-- Roadmap Section -->
+  <!-- Roadmap -->
   <div class="roadmap">
     <h2>Roadmap</h2>
     <ul class="roadmap-list">
-      <li>
-        <span class="quarter">Q3 2025</span>
-        <span class="milestone">MVP-Start- und Token-Listing auf Pump.fun</span>
-      </li>
-      <li>
-        <span class="quarter">Q4 2025</span>
-        <span class="milestone">✅ Erste Partnerschaften mit Immobilienmarklern eingehen</span>
-      </li>
-      <li>
-        <span class="quarter">Q1 2026</span>
-        <span class="milestone">
-          Abstecken von Dashboard- und Community-Zuschüssen<br>
-          ✅ Einführung unseres tokenisierten Immobilienportfolios (erste Immobilien auf Plattform)
-        </span>
-      </li>
+      <li><span class="quarter">Q3 2025</span><span class="milestone">MVP-Start- und Token-Listing auf Pump.fun</span></li>
+      <li><span class="quarter">Q4 2025</span><span class="milestone">✅ Erste Partnerschaften mit Immobilienmaklern eingehen</span></li>
+      <li><span class="quarter">Q1 2026</span><span class="milestone">Abstecken von Dashboard- und Community-Zuschüssen<br>✅ Einführung unseres tokenisierten Immobilienportfolios (erste Immobilien auf Plattform)</span></li>
     </ul>
+  </div>
+
+  <!-- Modal -->
+  <div id="dappModal" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); display:flex; align-items:center; justify-content:center;">
+    <div style="background:#4B0082; padding:30px; border:3px solid #fff; border-radius:12px; text-align:center; max-width:600px;">
+      <img src="popprop-house.png" alt="PopProp Coming Soon" style="max-width:100%; border-radius:12px; margin-bottom:20px;">
+      <p style="font-size:20px; font-family:'Press Start 2P', cursive;">DAPP Coming Soon 🚀</p>
+      <button onclick="document.getElementById('dappModal').style.display='none'" style="margin-top:20px; font-size:16px; padding:10px 20px; font-family:'Press Start 2P', cursive; background:#800080; color:#fff; border:2px solid #fff; border-radius:8px; cursor:pointer;">Close</button>
+    </div>
   </div>
 
 </body>
