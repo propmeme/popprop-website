@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PopProp – Real Estate Meets Meme Culture</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -16,172 +16,199 @@
     .hero { display: flex; justify-content: center; align-items: center; flex-direction: column; }
     .story { margin: 20px auto; padding: 20px; max-width: 800px; }
     .story p {
-      font-size: 14px; line-height: 2; margin-bottom: 24px; font-weight: bold;
+      font-size: 14px;
+      line-height: 2;
+      margin-bottom: 24px;
+      font-weight: bold;
     }
     .story h2 {
-      font-size: 18px; margin-bottom: 24px; font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 24px;
+      font-weight: bold;
     }
     .link-box { margin: 20px auto; padding: 10px; font-size: 18px;
       background: #4B0082; color: #fff; border-radius: 8px;
       display: inline-block; text-decoration: none;
     }
+    .roadmap { background: #4B0082; padding: 40px 20px; margin-top: 40px; }
+    .roadmap h2 { font-size: 24px; margin-bottom: 20px; }
+    .roadmap-list { list-style: none; padding: 0; margin: 0 auto; max-width: 800px; }
+    .roadmap-list li { display: flex; align-items: baseline; margin-bottom: 15px; }
+    .roadmap-list .quarter { flex: 0 0 120px; font-weight: bold; }
+    .roadmap-list .milestone { flex: 1; padding-left: 10px; border-left: 2px solid #fff;
+      text-align: left; line-height: 1.6; font-size: 13px; }
     .label-top-left {
-      position: absolute; top: 5px; left: 10px;
-      font-size: 8px; color: #fff;
+      position: absolute;
+      top: 5px; left: 10px;
+      font-size: 8px;
+      color: #fff;
     }
     .label-top-right {
-      position: absolute; top: 5px; right: 10px;
+      position: absolute;
+      top: 5px; right: 10px;
     }
     .label-top-right a {
-      font-size: 20px; color: #fff; text-decoration: none;
-      padding: 10px 20px; background-color: #4B0082;
-      border: 2px solid #fff; border-radius: 8px;
+      font-size: 20px;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #4B0082;
+      border: 2px solid #fff;
+      border-radius: 8px;
       transition: background-color 0.3s, transform 0.2s;
       display: inline-block;
     }
     .label-top-right a:hover {
-      background-color: #6a0dad; transform: scale(1.05);
+      background-color: #6a0dad;
+      transform: scale(1.05);
     }
-    .follow-x { margin: 20px auto; }
-    .follow-x img { width: 100px; opacity: 0.8; border: none; }
-    #stakingSection {
-      display: none;
-      margin-top: 30px;
+    .follow-x {
+      margin: 20px auto;
+    }
+    .follow-x img {
+      width: 100px; opacity: 0.8; border: none;
+    }
+    #balance-display {
+      margin-top: 15px;
+      font-size: 10px;
     }
     #stakeButton {
-      background: #32CD32;
-      color: #000;
-      padding: 10px 20px;
+      margin-top: 12px;
+      font-size: 14px;
       font-family: 'Press Start 2P', cursive;
+      background: #ff69b4;
+      color: #fff;
       border: 2px solid #fff;
       border-radius: 8px;
+      padding: 10px 20px;
       cursor: pointer;
-    }
-    #balance {
-      margin-top: 10px;
-      font-size: 12px;
     }
   </style>
 </head>
 <body>
-
-  <!-- Top-left label -->
   <div class="label-top-left">
     Meme estate on Solana<br>
     Something is coming.
     <div style="margin-top: 4px; height: 2px; width: 100%; background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); border-radius: 1px;"></div>
   </div>
-
-  <!-- Top-right DAPP button -->
   <div class="label-top-right">
     <a href="#" onclick="document.getElementById('dappModal').style.display='flex'">DAPP</a>
   </div>
-
-  <!-- Hero Image -->
   <div class="hero">
     <img src="popprop-image.png" alt="PopProp Illustration">
   </div>
-
-  <!-- Description -->
   <div class="story">
     <h2>PopProp – Real Estate Meets Meme Culture</h2>
-    <p>PopProp (POP) is a playful cultural concept built on Solana. It playfully reimagines the aesthetics of real estate through the lens of internet memes – without promises, products, or expectations. Just expression.</p>
-    <p>PopProp is not an investment. It's an open canvas for meme-driven creativity on-chain, reflecting culture’s strange dance with value. Join the movement, or just enjoy the noise.</p>
-    <a class="link-box" href="https://pump.fun/coin/6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump" target="_blank">Visit PopProp on Pump.fun</a>
+    <p>PopProp (POP) is a playful cultural concept built on Solana...</p>
+    <a class="link-box" href="https://pump.fun/coin/6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump" target="_blank">
+      Visit PopProp on Pump.fun
+    </a>
     <div class="follow-x">
       <a href="https://x.com/propmeme1" target="_blank">
         <img src="x-icon.png" alt="Follow on X">
       </a>
     </div>
   </div>
-
-  <!-- Fake Staking Section -->
-  <div class="story" id="stakingSection">
-    <h2>🎮 MVP-Staking (Fake) für Spaß</h2>
-    <p>POP-Balance: <span id="popBalance">–</span></p>
-    <button id="stakeButton" onclick="stake()">Stake</button>
-    <p id="stakeStatus" style="font-size:10px; margin-top:10px;"></p>
+  <div class="story">
+    <h2>The Tale of PopProp City</h2>
+    <p>“Real estate was serious. Memes were chaos.”</p>
+    <p>One day, Pepe said: “What if we blur the line?”</p>
+    <p>The buildings paused. “We were never meant to be funny.”</p>
+    <p><strong>BONK</strong> burst in, pixelated and barking: <em>“On Solana, everything is remixable.”</em></p>
+    <p>Since then, PopProp City lives between columns and copypasta...</p>
   </div>
-
-  <!-- Wallet Modal -->
+  <div class="roadmap">
+    <h2>Roadmap</h2>
+    <ul class="roadmap-list">
+      <li><span class="quarter">Q3 2025</span><span class="milestone">Launch on Pump.fun...</span></li>
+      <li><span class="quarter">Q4 2025</span><span class="milestone">Collaborations...</span></li>
+      <li><span class="quarter">Q1 2026</span><span class="milestone">Experimental visualizations...</span></li>
+    </ul>
+  </div>
   <div id="dappModal" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); display:flex; align-items:center; justify-content:center;">
     <div style="background:#4B0082; padding:20px; border:3px solid #fff; border-radius:12px; text-align:center; width:90%; max-width:400px;">
       <p style="font-size:18px; font-family:'Press Start 2P', cursive;">🔗 Mit Phantom verbinden</p>
-      <button onclick="connectToPhantom()" style="margin:10px auto; font-size:14px; padding:10px 20px; font-family:'Press Start 2P', cursive; background:#6a0dad; color:#fff; border:2px solid #fff; border-radius:8px; cursor:pointer;">Wallet Connect</button>
+      <button onclick="connectToPhantom()" style="margin:10px auto; font-size:14px; padding:10px 20px; font-family:'Press Start 2P', cursive; background:#6a0dad; color:#fff; border:2px solid #fff; border-radius:8px; cursor:pointer;">
+        Wallet Connect
+      </button>
       <p id="phantom-status" style="margin-top: 10px; font-size: 10px;"></p>
+      <div id="balance-display"></div>
+      <button id="stakeButton" onclick="fakeStake()">🎮 MVP-Staking (Fake) für Spaß</button>
       <button onclick="document.getElementById('dappModal').style.display='none'" style="margin-top:20px; font-size:14px; padding:10px 20px; font-family:'Press Start 2P', cursive; background:#800080; color:#fff; border:2px solid #fff; border-radius:8px; cursor:pointer;">Close</button>
     </div>
   </div>
-
-  <!-- Scripts -->
+  <div style="margin: 40px auto 10px auto; font-size: 8px; font-family: 'Press Start 2P', cursive; max-width: 90%;">
+    <span style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: inline-block;">
+      PopProp is a cultural-satirical project for everyone – decentralized, memetic, diverse.
+    </span>
+  </div>
+  <div style="margin: 10px auto 40px auto; font-size: 8px; font-family: 'Press Start 2P', cursive; max-width: 90%; text-align: center;">
+    <span style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: inline-block; max-width: 100%;">
+      Disclaimer: PopProp is an artistic-satirical web project with no financial function. It does not constitute a financial product, financial advice, or an invitation to buy or trade. No liability is accepted for any interpretations or actions derived from its content.
+    </span>
+  </div>
   <script>
-    const POP_TOKEN_MINT = "6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump";
-    let connectedPublicKey = null;
+    const TOKEN_MINT = "6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump";
+
+    async function getTokenBalance(pubkey) {
+      const response = await fetch(`https://api.mainnet-beta.solana.com`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          jsonrpc: "2.0",
+          id: 1,
+          method: "getTokenAccountsByOwner",
+          params: [pubkey, { mint: TOKEN_MINT }, { encoding: "jsonParsed" }]
+        })
+      });
+      const data = await response.json();
+      try {
+        const amount = data.result.value[0].account.data.parsed.info.tokenAmount.uiAmount;
+        document.getElementById("balance-display").innerText = `💰 POP Balance: ${amount}`;
+      } catch {
+        document.getElementById("balance-display").innerText = "💰 POP Balance: 0";
+      }
+    }
 
     const connectToPhantom = async () => {
       if (!window.solana || !window.solana.isPhantom) {
-        alert("Phantom Wallet nicht gefunden.");
+        alert("Phantom Wallet nicht gefunden. Bitte installiere die Phantom App.");
         return;
       }
       try {
         const resp = await window.solana.connect();
-        connectedPublicKey = resp.publicKey.toString();
-        document.getElementById("phantom-status").innerText = "✅ Verbunden: " + connectedPublicKey;
-        document.getElementById("stakingSection").style.display = "block";
-        fetchPopBalance();
+        const pubkey = resp.publicKey.toString();
+        document.getElementById("phantom-status").innerText = "✅ Verbunden: " + pubkey;
+        getTokenBalance(pubkey);
       } catch (err) {
         console.error("Verbindung fehlgeschlagen:", err);
       }
     };
 
-    const fetchPopBalance = async () => {
-      const url = "https://api.mainnet-beta.solana.com";
-      const body = {
-        jsonrpc: "2.0",
-        id: 1,
-        method: "getTokenAccountsByOwner",
-        params: [
-          connectedPublicKey,
-          { mint: POP_TOKEN_MINT },
-          { encoding: "jsonParsed" }
-        ]
-      };
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-      });
-      const data = await res.json();
-      let amount = "0";
-      try {
-        const info = data.result.value[0].account.data.parsed.info.tokenAmount;
-        amount = (parseInt(info.amount) / Math.pow(10, info.decimals)).toFixed(2);
-      } catch (e) {
-        amount = "0.00";
-      }
-      document.getElementById("popBalance").innerText = amount + " POP";
-    };
-
-    const stake = () => {
-      document.getElementById("stakeButton").disabled = true;
-      document.getElementById("stakeStatus").innerText = "🚀 Gestaked! Du bist jetzt offiziell ein Meme-Tycoon.";
+    const fakeStake = () => {
+      alert("🎉 Du hast deine POP Tokens erfolgreich gestaked! (Fake-Staking für Meme-Zwecke)");
     };
 
     window.addEventListener("load", () => {
       if (window.solana?.isPhantom) {
         window.solana.connect({ onlyIfTrusted: true })
           .then(resp => {
-            connectedPublicKey = resp.publicKey.toString();
-            document.getElementById("phantom-status").innerText = "✅ Verbunden: " + connectedPublicKey;
-            document.getElementById("stakingSection").style.display = "block";
-            fetchPopBalance();
+            document.getElementById("phantom-status").innerText = "✅ Verbunden: " + resp.publicKey.toString();
+            getTokenBalance(resp.publicKey.toString());
           })
           .catch(() => {
             document.getElementById("phantom-status").innerText = "🔌 Nicht verbunden";
           });
+      } else {
+        document.getElementById("phantom-status").innerText = "Phantom nicht gefunden";
       }
     });
   </script>
-
 </body>
 </html>
