@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PopProp – Real Estate Meets Meme Culture</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    body, html {
+      margin: 0; padding: 0;
+      width: 100%; background: #800080;
+      color: #fff; font-family: 'Press Start 2P', cursive;
+      text-align: center; overflow-y: auto;
+    }
+    img { width: 100%; max-width: 100%; height: auto; object-fit: cover; }
+    .hero { display: flex; justify-content: center; align-items: center; flex-direction: column; }
+    .story { margin: 20px auto; padding: 20px; max-width: 800px; }
+    .story p {
+      font-size: 14px;
+      line-height: 2;
+      margin-bottom: 24px;
+      font-weight: bold;
+    }
+    .story h2 {
+      font-size: 18px;
+      margin-bottom: 24px;
+      font-weight: bold;
+    }
+    .link-box { margin: 20px auto; padding: 10px; font-size: 18px;
+      background: #4B0082; color: #fff; border-radius: 8px;
+      display: inline-block; text-decoration: none;
+    }
+    .roadmap { background: #4B0082; padding: 40px 20px; margin-top: 40px; }
+    .roadmap h2 { font-size: 24px; margin-bottom: 20px; }
+    .roadmap-list { list-style: none; padding: 0; margin: 0 auto; max-width: 800px; }
+    .roadmap-list li { display: flex; align-items: baseline; margin-bottom: 15px; }
+    .roadmap-list .quarter { flex: 0 0 120px; font-weight: bold; }
+    .roadmap-list .milestone { flex: 1; padding-left: 10px; border-left: 2px solid #fff;
+      text-align: left; line-height: 1.6; font-size: 13px; }
+
+    .label-top-left {
+      position: absolute;
+      top: 5px; left: 10px;
+      font-size: 8px;
+      color: #fff;
+    }
+
+    .label-top-right {
+      position: absolute;
+      top: 5px; right: 10px;
+    }
+    .label-top-right a {
+      font-size: 20px;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #4B0082;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.2s;
+      display: inline-block;
+    }
+    .label-top-right a:hover {
+      background-color: #6a0dad;
+      transform: scale(1.05);
+    }
+
+    .follow-x {
+      margin: 20px auto;
+    }
+    .follow-x img {
+      width: 100px; opacity: 0.8; border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top-left label -->
+  <div class="label-top-left">
+    Meme estate on Solana<br>
+    Something is coming.
+    <div style="margin-top: 4px; height: 2px; width: 100%; background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); border-radius: 1px;"></div>
+  </div>
+
+  <!-- Top-right DAPP button -->
+  <div class="label-top-right">
+    <a href="#" onclick="document.getElementById('dappModal').style.display='flex'">DAPP</a>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img src="popprop-image.png" alt="PopProp Illustration">
+  </div>
+
+  <!-- Main description -->
+  <div class="story">
+    <h2>PopProp – Real Estate Meets Meme Culture</h2>
+    <p>PopProp (POP) is a playful cultural concept built on Solana. It playfully reimagines the aesthetics of real estate through the lens of internet memes – without promises, products, or expectations. Just expression.</p>
+    <p>PopProp is not an investment. It's an open canvas for meme-driven creativity on-chain, reflecting culture’s strange dance with value. Join the movement, or just enjoy the noise.</p>
+    <a class="link-box" href="https://pump.fun/coin/6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump" target="_blank">
+      Visit PopProp on Pump.fun
+    </a>
+    <div class="follow-x">
+      <a href="https://x.com/propmeme1" target="_blank">
+        <img src="x-icon.png" alt="Follow on X">
+      </a>
+    </div>
+  </div>
+
+  <!-- Short Story of PopProp City -->
+  <div class="story">
+    <h2>The Tale of PopProp City</h2>
+    <p>“Real estate was serious. Memes were chaos.”</p>
+    <p>One day, Pepe said: “What if we blur the line?”</p>
+    <p>The buildings paused. “We were never meant to be funny.”</p>
+    <p><strong>BONK</strong> burst in, pixelated and barking: <em>“On Solana, everything is remixable.”</em></p>
+    <p>Since then, PopProp City lives between columns and copypasta – a zone of confusion, creativity, and pure internet culture. Powered by Solana, protected by irony, driven by memes.</p>
+  </div>
+
+  <!-- Roadmap -->
+  <div class="roadmap">
+    <h2>Roadmap</h2>
+    <ul class="roadmap-list">
+      <li><span class="quarter">Q3 2025</span><span class="milestone">Launch on Pump.fun and Meme MVP goes live<br>&rarr; Focused on community and creativity. No financial promises.</span></li>
+      <li><span class="quarter">Q4 2025</span><span class="milestone">Collaborations with real estate meme accounts & cultural references<br>&rarr; Satirical engagement with the real estate world, no commercial partnerships.</span></li>
+      <li><span class="quarter">Q1 2026</span><span class="milestone">Experimental visualizations of "tokenized real estate" – purely symbolic<br>&rarr; Where art meets code: fictional objects with no real-world value or ownership.</span></li>
+    </ul>
+  </div>
+
+  <!-- Wallet Modal (Phantom) -->
+  <div id="dappModal" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); display:flex; align-items:center; justify-content:center;">
+    <div style="background:#4B0082; padding:20px; border:3px solid #fff; border-radius:12px; text-align:center; width:90%; max-width:400px;">
+      <p style="font-size:18px; font-family:'Press Start 2P', cursive;">🔗 Mit Phantom verbinden</p>
+      <button onclick="connectToPhantom()" style="margin:10px auto; font-size:14px; padding:10px 20px; font-family:'Press Start 2P', cursive; background:#6a0dad; color:#fff; border:2px solid #fff; border-radius:8px; cursor:pointer;">
+        Wallet Connect
+      </button>
+      <p id="phantom-status" style="margin-top: 10px; font-size: 10px;"></p>
+      <button onclick="document.getElementById('dappModal').style.display='none'" style="margin-top:20px; font-size:14px; padding:10px 20px; font-family:'Press Start 2P', cursive; background:#800080; color:#fff; border:2px solid #fff; border-radius:8px; cursor:pointer;">Close</button>
+    </div>
+  </div>
+
+  <!-- Footer disclaimers -->
+  <div style="margin: 40px auto 10px auto; font-size: 8px; font-family: 'Press Start 2P', cursive; max-width: 90%;">
+    <span style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: inline-block;">
+      PopProp is a cultural-satirical project for everyone – decentralized, memetic, diverse.
+    </span>
+  </div>
+
+  <div style="margin: 10px auto 40px auto; font-size: 8px; font-family: 'Press Start 2P', cursive; max-width: 90%; text-align: center;">
+    <span style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: inline-block; max-width: 100%;">
+      Disclaimer: PopProp is an artistic-satirical web project with no financial function. It does not constitute a financial product, financial advice, or an invitation to buy or trade. No liability is accepted for any interpretations or actions derived from its content.
+    </span>
+  </div>
+
+  <!-- Phantom Wallet Script -->
+  <script>
+    const connectToPhantom = async () => {
+      if (!window.solana || !window.solana.isPhantom) {
+        alert("Phantom Wallet nicht gefunden. Bitte installiere die Phantom App.");
+        return;
+      }
+      try {
+        const resp = await window.solana.connect();
+        const pubkey = resp.publicKey.toString();
+        document.getElementById("phantom-status").innerText = "✅ Verbunden: " + pubkey;
+      } catch (err) {
+        console.error("Verbindung fehlgeschlagen:", err);
+      }
+    };
+
+    window.addEventListener("load", () => {
+      if (window.solana?.isPhantom) {
+        window.solana.connect({ onlyIfTrusted: true })
+          .then(resp => {
+            document.getElementById("phantom-status").innerText = "✅ Verbunden: " + resp.publicKey.toString();
+          })
+          .catch(() => {
+            document.getElementById("phantom-status").innerText = "🔌 Nicht verbunden";
+          });
+      } else {
+        document.getElementById("phantom-status").innerText = "Phantom nicht gefunden";
+      }
+    });
+  </script>
+
+</body>
+</html>
