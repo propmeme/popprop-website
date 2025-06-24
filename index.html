@@ -98,12 +98,12 @@
       margin-bottom: 1em;
     }
 
-    /* Linker Textblock */
+    /* Linker Textblock (Desktop) */
     .text-block {
       top: 120vh;
       left: 5vw;
     }
-    /* Rechter Textblock */
+    /* Rechter Textblock (Desktop) */
     .text-block-right {
       top: 120vh;
       left: 60vw;
@@ -213,7 +213,7 @@
       background: rgba(128,20,200,0.9);
     }
 
-    /* Responsive für Mobile: Texte unter das Bild setzen */
+    /* Responsive für Mobile: Texte unter das Bild setzen, mit margin-top */
     @media (max-width: 600px) {
       .text-block,
       .text-block-right {
@@ -224,13 +224,15 @@
         position: relative;
         width: 90%;
         max-width: 400px;
-        margin: 20px auto;
+        margin: 0 auto;
         padding: 10px;
         font-family: 'Cinzel', serif;
         font-size: 14px;
         line-height: 1.6;
         color: #fff;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        /* Damit der Container erst nach dem Hero-Bereich erscheint: */
+        margin-top: 300vh; 
       }
     }
     @media (min-width: 601px) {
