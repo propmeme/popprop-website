@@ -19,7 +19,7 @@
       height: 100%;
       overflow-x: hidden;
       overflow-y: auto;
-      background: #000; /* Fallback-Farbe, wenn Bild nicht lädt */
+      background: #000; /* Fallback-Farbe */
       color: #fff;
       font-family: 'Press Start 2P', cursive;
     }
@@ -71,14 +71,14 @@
       position: relative;
       width: 100%;
       height: 300vh; /* füllt drei Bildschirme */
-      background-image: url('popprop-hous.png'); /* aktualisierter Bildpfad */
+      background-image: url('popprop-hous.png'); /* Bildpfad prüfen! */
       background-position: top center;
       background-repeat: no-repeat;
       background-size: cover; /* Bild füllt Bereich proportional */
       z-index: 1;
     }
 
-    /* Gemeinsamer Stil für Textblöcke */
+    /* Gemeinsamer Stil für Textblöcke (Desktop) */
     .text-block,
     .text-block-right {
       position: absolute;
@@ -151,7 +151,7 @@
       border: none;
     }
 
-    /* Regenbogen-Text am Ende */
+    /* Regenbogen-Text ganz unten */
     .hero-footer {
       position: absolute;
       top: 300vh;
@@ -213,7 +213,7 @@
       background: rgba(128,20,200,0.9);
     }
 
-    /* Responsive für Mobile: Texte unter das Bild setzen, mit margin-top */
+    /* Responsive für Mobile: Texte direkt unter Regenbogen-Zeile setzen */
     @media (max-width: 600px) {
       .text-block,
       .text-block-right {
@@ -231,8 +231,8 @@
         line-height: 1.6;
         color: #fff;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-        /* Damit der Container erst nach dem Hero-Bereich erscheint: */
-        margin-top: 300vh; 
+        /* Direkt unter hero-footer: 300vh plus etwas Puffer */
+        margin-top: calc(300vh + 40px);
       }
     }
     @media (min-width: 601px) {
@@ -270,7 +270,7 @@
       <p><strong>PopProp – Meme-RWA, Community in Control</strong></p>
       <p>Could the community decide that a meme becomes a real asset? What if countless users collectively declare pixel houses as “land” and determine its value? Just a thought…</p>
       <p>PopProp (POP) presents itself as “Real World Asset,” and the true power lies with the people behind it: every decision, every trade, and every meme shapes its value directly. This is no joke—it’s an experiment in which the community decides the fate of bits and pixels. Who says land ownership requires solid ground when a community can give it life?</p>
-      <p>Is it really not an investment if you all “buy into” pixel properties and set their price through your actions and interactions? Perhaps behind every smart contract lies a mirror of what genuine collective decisions can achieve. Take it seriously: PopProp shows how a community can redefine meme culture and RWAs. Only those who participate will feel the power of the crowd.</p>
+      <p>Is it really not an investment if you all “buy into” pixel properties and set their price through your actions and interactions? Perhaps behind every smart contract lies a mirror of what genuine collective decisions can achieve. Take it seriously: PopProp shows how a community can redefine meme culture und RWAs. Only those who teilnehmen will feel the power of the crowd.</p>
     </div>
 
     <!-- Buttons knapp über Bildende -->
@@ -298,15 +298,15 @@
       <p><strong>The Story of PopProp</strong></p>
       <p>PopProp began as an experiment: a small meme project on Solana that demonstrated the power of community. From initial pixel houses arose the idea that a community can decide for itself what holds value.</p>
       <p>With each meme contribution, every shared screenshot, and every interaction, the community shaped the narrative further. The pillar at the center symbolizes the community’s solid core, while the surrounding skyscrapers represent creative exchange.</p>
-      <p>PopProp teaches us that collective decisions on the blockchain can be a new form of “value creation”: not only real assets, but also memes, ideas, and digital art gain meaning through joint action.</p>
-      <p>The story of PopProp is open and incomplete: it lives through your participation. Whether you contribute a new meme, bring in a subjective valuation, or simply watch and discuss—every interaction shapes the narrative further. The pillar in the middle can only stand if the community supports it.</p>
+      <p>PopProp teaches us that collective decisions on the blockchain can be a new form of “value creation”: not only real assets, but also memes, ideas, und digital art gain meaning through joint action.</p>
+      <p>The story of PopProp is open and incomplete: it lives through your participation. Whether you contribute a new meme, bring in a subjective valuation, oder simply watch und discuss—every interaction shapes the narrative further. Die Säule in der Mitte kann nur stehen, wenn die Community sie stützt.</p>
       <p>Be part of the story—post, share, and co-create. Because in PopProp, the crowd decides.</p>
     </div>
     <div style="margin-top: 1em;">
       <p><strong>PopProp – Meme-RWA, Community in Control</strong></p>
-      <p>Could the community decide that a meme becomes a real asset? What if countless users collectively declare pixel houses as “land” and determine its value? Just a thought…</p>
-      <p>PopProp (POP) presents itself as “Real World Asset,” and the true power lies with the people behind it: every decision, every trade, and every meme shapes its value directly. This is no joke—it’s an experiment in which the community decides the fate of bits and pixels. Who says land ownership requires solid ground when a community can give it life?</p>
-      <p>Is it really not an investment if you all “buy into” pixel properties and set their price through your actions and interactions? Perhaps behind every smart contract lies a mirror of what genuine collective decisions can achieve. Take it seriously: PopProp shows how a community can redefine meme culture und RWAs. Only those who participate will feel the power of the crowd.</p>
+      <p>Could the community decide that a meme becomes a real asset? What if countless users collectively declare pixel houses as “land” und determine its value? Just a thought…</p>
+      <p>PopProp (POP) presents itself as “Real World Asset,” und the true power liegt bei den Menschen dahinter: every decision, every trade, and every meme shapes its value directly. This is no joke—it’s an experiment in which the community decides the fate of bits und pixels. Who says land ownership requires solid ground when a community can give it life?</p>
+      <p>Is it really not an investment if you all “buy into” pixel properties und set their price through your actions und interactions? Perhaps behind every smart contract lies a mirror of what genuine collective decisions can achieve. Take it seriously: PopProp shows how a community can redefine meme culture und RWAs. Only those who participate will feel the power of the crowd.</p>
     </div>
   </div>
 
