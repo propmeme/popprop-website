@@ -27,23 +27,23 @@
     /* Kleiner, feststehender Titel oben */
     .site-title {
       position: fixed;
-      top: 5px; /* ganz oben, etwas Abstand */
+      top: 5px;
       left: 50%;
       transform: translateX(-50%);
       font-family: 'Cinzel', serif;
-      font-size: 2rem; /* kleinere Größe */
+      font-size: 2rem;
       font-weight: 700;
       color: #fff;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-      z-index: 30; /* über allen anderen Elementen */
+      z-index: 30;
       white-space: nowrap;
-      pointer-events: none; /* kein Klick, nur Anzeige */
+      pointer-events: none;
     }
 
-    /* Labels oben (klein) */
+    /* Labels oben */
     .label-top-left {
       position: fixed;
-      top: 30px; /* unter dem site-title */
+      top: 30px;
       left: 10px;
       font-size: 8px;
       color: #fff;
@@ -59,7 +59,7 @@
     }
     .label-top-right {
       position: fixed;
-      top: 30px; /* unter dem site-title */
+      top: 30px;
       right: 10px;
       z-index: 29;
     }
@@ -86,11 +86,11 @@
     .hero {
       position: relative;
       width: 100%;
-      height: 300vh; /* 3 Bildschirmhöhen */
-      background-image: url('popprop-hous.png'); /* Pfad zum Hintergrundbild */
+      height: 300vh;
+      background-image: url('popprop-hous.png');
       background-position: top center;
       background-repeat: no-repeat;
-      background-size: auto 300vh; /* Bildhöhe = 300vh */
+      background-size: auto 300vh;
       z-index: 1;
     }
 
@@ -114,13 +114,12 @@
       margin-bottom: 1em;
     }
 
-    /* Linker Textblock: The Story of PopProp */
+    /* Linker Textblock */
     .text-block {
-      top: 120vh;  /* Höhe, an der der linke Text erscheint */
+      top: 120vh;
       left: 5vw;
     }
-
-    /* Rechter Textblock: PopProp – Meme-RWA, Community in Control */
+    /* Rechter Textblock */
     .text-block-right {
       top: 120vh;
       left: 60vw;
@@ -188,7 +187,7 @@
       display: inline-block;
     }
 
-    /* Modal (optional) */
+    /* Modal */
     #dappModal {
       display: none;
       position: fixed;
@@ -232,38 +231,40 @@
 
     /* Responsive Anpassungen für Smartphones */
     @media (max-width: 600px) {
-      /* Site-Title etwas kleiner */
+      /* Site-Title */
       .site-title {
         font-size: 1.5rem;
         top: 5px;
       }
-      /* Labels weiter unten, damit Platz für Title ist */
       .label-top-left, .label-top-right {
         top: 30px;
       }
-      /* Hintergrundhöhe und Größe anpassen */
+      /* Hintergrund anpassen */
       .hero {
         height: 150vh;
         background-size: cover;
       }
-      /* Textblöcke: volle Breite fast, vertikal untereinander */
+      /* Textblöcke: breite Box mit dunklem Hintergrund */
       .text-block,
       .text-block-right {
         width: 80vw !important;
         max-width: none;
         font-size: 16px;
         left: 10vw !important;
+        background: rgba(0,0,0,0.6);
+        padding: 10px;
+        border-radius: 8px;
       }
-      /* Linker Block näher oben */
+      /* Linker Block früher anzeigen */
       .text-block {
-        top: 80vh !important;
+        top: 50vh !important;
       }
-      /* Rechter Block unter dem linken Block */
+      /* Rechter Block unterhalb linker Block */
       .text-block-right {
-        top: calc(80vh + 300px) !important;
+        top: calc(50vh + 250px) !important;
         left: 10vw !important;
       }
-      /* Buttons vergrößern */
+      /* Buttons größer */
       .link-box {
         padding: 12px 24px;
         font-size: 16px;
@@ -271,7 +272,7 @@
       .follow-x {
         width: 80px;
       }
-      /* Footer-Text etwas früher anzeigen */
+      /* Footer-Text */
       .hero-footer {
         top: 150vh !important;
         font-size: 0.9rem;
@@ -280,7 +281,7 @@
   </style>
 </head>
 <body>
-  <!-- Kleiner, feststehender Titel oben -->
+  <!-- Feststehender Titel -->
   <div class="site-title">POPPROP</div>
 
   <!-- Labels oben -->
@@ -308,7 +309,7 @@
     <div class="text-block-right">
       <p>PopProp – Meme-RWA, Community in Control</p>
       <p>Could the community decide that a meme becomes a real asset? What if countless users collectively declare pixel houses as “land” and determine its value? Just a thought…</p>
-      <p>PopProp (POP) presents itself as “Real World Asset,” and the true power lies with the people behind it: every decision, every trade, and every meme shapes its value directly. This is no joke—it’s an experiment in which the community decides the fate of bits and pixels. Who says land ownership requires solid ground when a community can give it life?</p>
+      <p>PopProp (POP) presents itself as “Real World Asset,” and the true power lies with the people behind it: every decision, every trade, and every meme shapes its value directly. This is no joke—it’s an Experiment in which the community decides the fate of bits and pixels. Who says land ownership requires solid ground when a community can give it life?</p>
       <p>Is it really not an investment if you all “buy into” pixel properties and set their price through your actions and interactions? Perhaps behind every smart contract lies a mirror of what genuine collective decisions can achieve. Take it seriously: PopProp shows how a community can redefine meme culture und RWAs. Only those who teilnehmen will feel the power of the crowd.</p>
     </div>
 
