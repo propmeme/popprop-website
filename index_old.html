@@ -1,194 +1,296 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>   
+<html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PopProp – Real Estate Meets Meme Culture</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-    body, html {
-      margin: 0; padding: 0;
-      width: 100%; background: #800080;
-      color: #fff; font-family: 'Press Start 2P', cursive;
-      text-align: center; overflow-y: auto;
-    }
-    img { width: 100%; max-width: 100%; height: auto; object-fit: cover; }
-    .hero { display: flex; justify-content: center; align-items: center; flex-direction: column; }
-    .story { margin: 20px auto; padding: 20px; max-width: 800px; }
-    .story p {
-      font-size: 14px;
-      line-height: 2;
-      margin-bottom: 24px;
-      font-weight: bold;
-    }
-    .story h2 {
-      font-size: 18px;
-      margin-bottom: 24px;
-      font-weight: bold;
-    }
-    .link-box { margin: 20px auto; padding: 10px; font-size: 18px;
-      background: #4B0082; color: #fff; border-radius: 8px;
-      display: inline-block; text-decoration: none;
-    }
-    .roadmap { background: #4B0082; padding: 40px 20px; margin-top: 40px; }
-    .roadmap h2 { font-size: 24px; margin-bottom: 20px; }
-    .roadmap-list { list-style: none; padding: 0; margin: 0 auto; max-width: 800px; }
-    .roadmap-list li { display: flex; align-items: baseline; margin-bottom: 15px; }
-    .roadmap-list .quarter { flex: 0 0 120px; font-weight: bold; }
-    .roadmap-list .milestone { flex: 1; padding-left: 10px; border-left: 2px solid #fff;
-      text-align: left; line-height: 1.6; font-size: 13px; }
+    /* Fonts importieren */
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap');
 
+    /* Reset */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body {
+      width:100%; height:100%;
+      overflow-x:hidden; overflow-y:auto;
+      background:#000; color:#fff;
+      font-family:'Press Start 2P', cursive;
+    }
+
+    /* POPPROP Titel */
+    .site-title {
+      position:fixed; top:10px; left:50%;
+      transform:translateX(-50%);
+      font-family:'Cinzel', serif; font-weight:700;
+      font-size:24px; color:#fff;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+      z-index:11; pointer-events:none;
+    }
+
+    /* Labels oben */
+    .label-top-left, .label-top-right { position:fixed; z-index:12; }
     .label-top-left {
-      position: absolute;
-      top: 5px; left: 10px;
-      font-size: 8px;
-      color: #fff;
+      top:5px; left:10px; font-size:8px; color:#fff;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
     }
-
+    .label-top-left .rainbow-line {
+      margin-top:4px; height:2px; width:100%;
+      background:linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+      border-radius:1px;
+    }
     .label-top-right {
-      position: absolute;
-      top: 5px; right: 10px;
+      top:5px; right:10px;
     }
     .label-top-right a {
-      font-size: 20px;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 20px;
-      background-color: #4B0082;
-      border: 2px solid #fff;
-      border-radius: 8px;
-      transition: background-color 0.3s, transform 0.2s;
-      display: inline-block;
+      font-family:'Press Start 2P', cursive;
+      font-size:20px; color:#fff;
+      padding:10px 20px;
+      background:rgba(75,0,130,0.8);
+      border:2px solid #fff; border-radius:8px;
+      text-decoration:none;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+      transition:background .3s,transform .2s;
+      cursor:pointer;
     }
     .label-top-right a:hover {
-      background-color: #6a0dad;
-      transform: scale(1.05);
+      background:rgba(106,13,173,0.9);
+      transform:scale(1.05);
     }
 
-    .follow-x {
-      margin: 20px auto;
+    /* Hero */
+    .hero {
+      position:relative; width:100%; height:300vh;
+      background:url('popprop-hous.png') top center / cover no-repeat;
+      z-index:1;
     }
-    .follow-x img {
-      width: 100px; opacity: 0.8; border: none;
+    @media (max-width:600px){ .hero{height:100vh;} }
+
+    /* Desktop-Textblöcke */
+    .text-block, .text-block-right {
+      position:absolute; width:25vw; max-width:300px;
+      font-family:'Cinzel', serif; font-size:14px; line-height:1.6;
+      color:#fff; text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+      z-index:2;
+    }
+    .text-block { top:120vh; left:5vw; }
+    .text-block-right { top:120vh; left:60vw; }
+    @media (max-width:600px){
+      .text-block, .text-block-right { display:none; }
+    }
+
+    /* Buttons */
+    .buttons {
+      position:absolute; bottom:80px; left:50%;
+      transform:translateX(-50%);
+      text-align:center; z-index:2;
+    }
+    .mint-address {
+      font-family:'Press Start 2P', cursive; font-weight:bold;
+      font-size:14px; margin-bottom:8px;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+    }
+    .link-box {
+      font-family:'Playfair Display', serif; font-weight:700;
+      display:inline-block; margin:0 10px; padding:10px 20px;
+      font-size:18px;
+      background:rgba(75,0,130,0.8); color:#fff;
+      border:3px solid #D4AF37; border-radius:8px;
+      box-shadow:0 0 10px rgba(212,175,55,0.5);
+      transition:background .3s,transform .2s,box-shadow .3s;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+      text-decoration:none;
+    }
+    .link-box:hover {
+      background:rgba(106,13,173,0.9);
+      transform:scale(1.03);
+      box-shadow:0 0 15px rgba(212,175,55,0.7);
+    }
+    .follow-x, .follow-telegram {
+      display:inline-block; margin:0 10px;
+      width:120px; vertical-align:middle;
+    }
+    .follow-x img, .follow-telegram img {
+      width:100%; opacity:0.8; border:none;
+    }
+
+    /* Telegram unter X nur mobil */
+    @media(max-width:600px){
+      .buttons .follow-telegram {
+        display:block; margin:8px auto 0;
+      }
+    }
+
+    /* Regenbogen-Footer */
+    .hero-footer {
+      position:absolute; left:50%; width:100%; text-align:center;
+      font-family:'Playfair Display', serif; font-size:0.8rem;
+      padding-bottom:20px; z-index:2;
+      top:300vh; transform:translateX(-50%);
+    }
+    @media(max-width:600px){ .hero-footer{top:100vh;} }
+    .hero-footer span {
+      background:linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      display:inline-block;
+    }
+
+    /* Modal */
+    #dappModal {
+      display:none; position:fixed; top:0; left:0;
+      width:100%; height:100%; background:rgba(0,0,0,0.85);
+      align-items:center; justify-content:center; z-index:20;
+    }
+    #dappModalContent {
+      background:rgba(75,0,130,0.95); padding:20px;
+      border:3px solid #fff; border-radius:12px;
+      text-align:center; width:90%; max-width:400px;
+    }
+    #dappModalContent p, #dappModalContent button {
+      font-family:'Press Start 2P', cursive; color:#fff;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+    }
+    #dappModalContent button {
+      margin:10px auto; padding:10px 20px;
+      background:rgba(106,13,173,0.9); border:2px solid #fff;
+      border-radius:8px; cursor:pointer; display:block;
+      font-size:0.8rem;
+    }
+    #dappModalContent button:hover {
+      background:rgba(128,20,200,0.9);
+    }
+
+    /* Mobile-Textcontainer */
+    @media(max-width:600px){
+      .mobile-text-container {
+        display:block; position:relative;
+        width:90%; max-width:400px; margin:0 auto;
+        padding:10px; font-family:'Cinzel', serif;
+        font-size:14px; line-height:1.6;
+        color:#fff; text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+        margin-top:4em;
+      }
+      .mint-address { font-size:8px; }
+      .label-top-left { font-size:6px; top:4px; left:6px; }
+      .label-top-left .rainbow-line { height:1px; margin-top:3px; }
+      .label-top-right a { font-size:14px; padding:6px 12px; }
+      .site-title { font-size:18px; top:6px; }
+    }
+    @media(min-width:601px){
+      .mobile-text-container { display:none; }
     }
   </style>
 </head>
 <body>
+  <div class="site-title">POPPROP</div>
 
-  <!-- Top-left label -->
   <div class="label-top-left">
     Meme estate on Solana<br>
     Something is coming.
-    <div style="margin-top: 4px; height: 2px; width: 100%; background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); border-radius: 1px;"></div>
+    <div class="rainbow-line"></div>
   </div>
-
-  <!-- Top-right DAPP button -->
   <div class="label-top-right">
-    <a href="#" onclick="document.getElementById('dappModal').style.display='flex'">DAPP</a>
+    <a onclick="document.getElementById('dappModal').style.display='flex'">DAPP</a>
   </div>
 
-  <!-- Hero -->
   <div class="hero">
-    <img src="popprop-image.png" alt="PopProp Illustration">
-  </div>
+    <!-- Linker Desktop-Block -->
+    <div class="text-block">
+      <p><strong>The Story of PopProp</strong></p>
+      <p>PopProp began as an experiment: a small meme project on Solana that demonstrated the power of community. From initial pixel houses arose the idea that a community can decide for itself what holds value.</p>
+      <p>With each meme contribution, every shared screenshot, and every interaction, the community shaped the narrative further. The pillar at the center symbolizes the community’s solid core, while the surrounding skyscrapers represent creative exchange.</p>
+      <p>PopProp teaches us that collective decisions on the blockchain can be a new form of “value creation”: not only real assets, but also memes, ideas, and digital art gain meaning through joint action.</p>
+      <p>The story of PopProp is open and incomplete: it lives through your participation. Whether you contribute a new meme, bring in a subjective valuation, or simply watch and discuss—every interaction shapes the narrative further. The pillar in the middle can only stand if the community supports it.</p>
+      <p>Be part of the story—post, share, and co-create. Because in PopProp, the crowd decides.</p>
+    </div>
 
-  <!-- Main description -->
-  <div class="story">
-    <h2>PopProp – Real Estate Meets Meme Culture</h2>
-    <p>PopProp (POP) is a playful cultural concept built on Solana. It playfully reimagines the aesthetics of real estate through the lens of internet memes – without promises, products, or expectations. Just expression.</p>
-    <p>PopProp is not an investment. It's an open canvas for meme-driven creativity on-chain, reflecting culture’s strange dance with value. Join the movement, or just enjoy the noise.</p>
-    <a class="link-box" href="https://pump.fun/coin/6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump" target="_blank">
-      Visit PopProp on Pump.fun
-    </a>
-    <div class="follow-x">
-      <a href="https://x.com/propmeme1" target="_blank">
-        <img src="x-icon.png" alt="Follow on X">
-      </a>
+    <!-- Rechter Desktop-Block -->
+    <div class="text-block-right">
+      <p><strong>PopProp – Meme-RWA, Community in Control</strong></p>
+      <p>Could the community decide that a meme becomes a real asset? What if countless users collectively declare pixel houses as “land” and set their value? Just a thought…</p>
+      <p>PopProp (POP) presents itself as a “Real World Asset,” and the true power lies with the people behind it: every decision, every trade, and every meme shapes its value directly. This is no joke—it’s an experiment where the community decides the fate of bits and pixels. Who says land ownership needs solid ground when a community can give it life?</p>
+      <p>Is it really not an investment if you all “buy into” pixel properties and determine their price through your actions and interactions? Perhaps behind every smart contract lies a mirror of what genuine collective decisions can achieve. Take it seriously: PopProp shows how a community can redefine meme culture and RWAs. Only those who participate will feel the power of the crowd.</p>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <div class="mint-address">Contract Address: 6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump</div>
+      <a class="link-box"
+         href="https://pump.fun/coin/6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump"
+         target="_blank">Visit PopProp on Pump.fun</a>
+      <span class="follow-x">
+        <a href="https://x.com/propmeme1" target="_blank">
+          <img src="x-icon.png" alt="Follow on X">
+        </a>
+      </span>
+      <span class="follow-telegram">
+        <a href="https://t.me/poppropmeme" target="_blank">
+          <img src="telegram.png" alt="Join on Telegram">
+        </a>
+      </span>
+    </div>
+
+    <!-- Regenbogen-Footer -->
+    <div class="hero-footer">
+      <span>PopProp is a project for everyone – decentralized, community-driven, meme-based, diverse.<br>
+            Art meets RWA: PopProp merges meme culture with RWA through an engaged community.</span>
     </div>
   </div>
 
-  <!-- Short Story of PopProp City -->
-  <div class="story">
-    <h2>The Tale of PopProp City</h2>
-    <p>“Real estate was serious. Memes were chaos.”</p>
-    <p>One day, Pepe said: “What if we blur the line?”</p>
-    <p>The buildings paused. “We were never meant to be funny.”</p>
-    <p><strong>BONK</strong> burst in, pixelated and barking: <em>“On Solana, everything is remixable.”</em></p>
-    <p>Since then, PopProp City lives between columns and copypasta – a zone of confusion, creativity, and pure internet culture. Powered by Solana, protected by irony, driven by memes.</p>
-  </div>
-
-  <!-- Roadmap -->
-  <div class="roadmap">
-    <h2>Roadmap</h2>
-    <ul class="roadmap-list">
-      <li><span class="quarter">Q3 2025</span><span class="milestone">Launch on Pump.fun and Meme MVP goes live<br>&rarr; Focused on community and creativity. No financial promises.</span></li>
-      <li><span class="quarter">Q4 2025</span><span class="milestone">Collaborations with real estate meme accounts & cultural references<br>&rarr; Satirical engagement with the real estate world, no commercial partnerships.</span></li>
-      <li><span class="quarter">Q1 2026</span><span class="milestone">Experimental visualizations of "tokenized real estate" – purely symbolic<br>&rarr; Where art meets code: fictional objects with no real-world value or ownership.</span></li>
-    </ul>
-  </div>
-
-  <!-- Wallet Modal (Phantom) -->
-  <div id="dappModal" style="display:none; position:fixed; z-index:9999; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); display:flex; align-items:center; justify-content:center;">
-    <div style="background:#4B0082; padding:20px; border:3px solid #fff; border-radius:12px; text-align:center; width:90%; max-width:400px;">
-      <p style="font-size:18px; font-family:'Press Start 2P', cursive;">🔗 Mit Phantom verbinden</p>
-      <button onclick="connectToPhantom()" style="margin:10px auto; font-size:14px; padding:10px 20px; font-family:'Press Start 2P', cursive; background:#6a0dad; color:#fff; border:2px solid #fff; border-radius:8px; cursor:pointer;">
-        Wallet Connect
-      </button>
-      <p id="phantom-status" style="margin-top: 10px; font-size: 10px;"></p>
-      <button onclick="document.getElementById('dappModal').style.display='none'" style="margin-top:20px; font-size:14px; padding:10px 20px; font-family:'Press Start 2P', cursive; background:#800080; color:#fff; border:2px solid #fff; border-radius:8px; cursor:pointer;">Close</button>
+  <!-- Mobile-Textcontainer -->
+  <div class="mobile-text-container">
+    <div>
+      <p><strong>The Story of PopProp</strong></p>
+      <p>PopProp began as an experiment: a small meme project on Solana that demonstrated the power of community. From initial pixel houses arose the idea that a community can decide for itself what holds value.</p>
+      <p>With each meme contribution, every shared screenshot, and every interaction, the community shaped the narrative further. The pillar at the center symbolizes the community’s solid core, while the surrounding skyscrapers represent creative exchange.</p>
+      <p>PopProp teaches us that collective decisions on the blockchain can be a new form of “value creation”: not only real assets, but also memes, ideas, und digital art gain meaning through joint action.</p>
+      <p>The story of PopProp is open und incomplete: it lives through your participation. Whether you contribute a new meme, bring in a subjective valuation, oder einfach zuschaust und diskutierst—jede Interaktion prägt das Narrativ weiter. Die Säule in der Mitte kann nur stehen, wenn die Community sie stützt.</p>
+      <p>Be part of the story—post, share, and co-create. Because in PopProp, the crowd decides.</p>
+    </div>
+    <div style="margin-top:1em;">
+      <p><strong>PopProp – Meme-RWA, Community in Control</strong></p>
+      <p>Could the community decide that a meme becomes a real asset? What if countless users collectively declare pixel houses as “land” und set their value? Just a thought…</p>
+      <p>PopProp (POP) presents itself as a “Real World Asset,” and the true power liegt bei den Menschen dahinter: every decision, every trade, and every meme shapes its value directly. This is no joke—it’s an experiment where the community decides the fate of bits und pixels. Who says land ownership needs solid ground when a community can give it life?</p>
+      <p>Is it really not an investment if you all “buy into” pixel properties und determine ihr price durch your actions und interactions? Perhaps hinter jedem Smart Contract liegt ein Spiegel dessen, was genuine collective decisions bewirken können. Take it seriously: PopProp shows how a community can redefine meme culture und RWAs. Only those who participate will feel the power of the crowd.</p>
     </div>
   </div>
 
-  <!-- Footer disclaimers -->
-  <div style="margin: 40px auto 10px auto; font-size: 8px; font-family: 'Press Start 2P', cursive; max-width: 90%;">
-    <span style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                display: inline-block;">
-      PopProp is a cultural-satirical project for everyone – decentralized, memetic, diverse.
-    </span>
+  <!-- DAPP Modal -->
+  <div id="dappModal">
+    <div id="dappModalContent">
+      <p>🔗 Connect with Phantom</p>
+      <button onclick="connectToPhantom()">Connect Wallet</button>
+      <p id="phantom-status">🔌 Not connected</p>
+      <div id="balance-display"></div>
+      <button id="stakeButton" onclick="fakeStake()">🎮 Could something be coming?</button>
+      <button onclick="document.getElementById('dappModal').style.display='none'">Close</button>
+    </div>
   </div>
 
-  <div style="margin: 10px auto 40px auto; font-size: 8px; font-family: 'Press Start 2P', cursive; max-width: 90%; text-align: center;">
-    <span style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                display: inline-block; max-width: 100%;">
-      Disclaimer: PopProp is an artistic-satirical web project with no financial function. It does not constitute a financial product, financial advice, or an invitation to buy or trade. No liability is accepted for any interpretations or actions derived from its content.
-    </span>
-  </div>
-
-  <!-- Phantom Wallet Script -->
   <script>
-    const connectToPhantom = async () => {
-      if (!window.solana || !window.solana.isPhantom) {
-        alert("Phantom Wallet nicht gefunden. Bitte installiere die Phantom App.");
-        return;
+    const TOKEN_MINT = "6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump";
+    async function getTokenBalance(pubkey) {
+      const res = await fetch('https://api.mainnet-beta.solana.com', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({jsonrpc:'2.0',id:1,method:'getTokenAccountsByOwner',params:[pubkey,{mint:TOKEN_MINT},{encoding:'jsonParsed'}]})
+      });
+      const data = await res.json();
+      try {
+        const amt = data.result.value[0].account.data.parsed.info.tokenAmount.uiAmount;
+        document.getElementById('balance-display').innerText = `💰 POP Balance: ${amt}`;
+      } catch {
+        document.getElementById('balance-display').innerText = '💰 POP Balance: 0';
       }
+    }
+    const connectToPhantom = async ()=> {
+      if(!window.solana||!window.solana.isPhantom){ alert('Please install Phantom.'); return;}
       try {
         const resp = await window.solana.connect();
-        const pubkey = resp.publicKey.toString();
-        document.getElementById("phantom-status").innerText = "✅ Verbunden: " + pubkey;
-      } catch (err) {
-        console.error("Verbindung fehlgeschlagen:", err);
-      }
+        document.getElementById('phantom-status').innerText = '✅ Connected: '+resp.publicKey.toString();
+        getTokenBalance(resp.publicKey.toString());
+      } catch{}
     };
-
-    window.addEventListener("load", () => {
-      if (window.solana?.isPhantom) {
-        window.solana.connect({ onlyIfTrusted: true })
-          .then(resp => {
-            document.getElementById("phantom-status").innerText = "✅ Verbunden: " + resp.publicKey.toString();
-          })
-          .catch(() => {
-            document.getElementById("phantom-status").innerText = "🔌 Nicht verbunden";
-          });
-      } else {
-        document.getElementById("phantom-status").innerText = "Phantom nicht gefunden";
-      }
-    });
+    const fakeStake = ()=> alert('🎉 You have successfully staked your POP tokens! (Just for fun)');
   </script>
-
 </body>
 </html>
