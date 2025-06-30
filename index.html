@@ -9,306 +9,180 @@
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap');
 
     /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
     html, body {
-      width: 100%;
-      height: 100%;
-      overflow-x: hidden;
-      overflow-y: auto;
-      background: #000; /* Fallback-Farbe */
-      color: #fff;
-      font-family: 'Press Start 2P', cursive;
+      width:100%; height:100%;
+      overflow-x:hidden; overflow-y:auto;
+      background:#000; color:#fff;
+      font-family:'Press Start 2P', cursive;
     }
 
-    /* POPPROP Titel mittig oben in antiker Schrift */
+    /* POPPROP Titel */
     .site-title {
-      position: fixed;
-      top: 10px; /* Abstand vom oberen Rand; ggf. anpassen */
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
-      font-size: 24px; /* Desktop-Größe */
-      color: #fff;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-      z-index: 11;
-      pointer-events: none;
+      position:fixed; top:10px; left:50%;
+      transform:translateX(-50%);
+      font-family:'Cinzel', serif; font-weight:700;
+      font-size:24px; color:#fff;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+      z-index:11; pointer-events:none;
     }
 
     /* Labels oben */
+    .label-top-left, .label-top-right { position:fixed; z-index:12; }
     .label-top-left {
-      position: fixed;
-      top: 5px;
-      left: 10px;
-      font-size: 8px;
-      color: #fff;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-      z-index: 12;
+      top:5px; left:10px; font-size:8px; color:#fff;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
     }
     .label-top-left .rainbow-line {
-      margin-top: 4px;
-      height: 2px;
-      width: 100%;
-      background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
-      border-radius: 1px;
+      margin-top:4px; height:2px; width:100%;
+      background:linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+      border-radius:1px;
     }
     .label-top-right {
-      position: fixed;
-      top: 5px;
-      right: 10px;
-      z-index: 12;
+      top:5px; right:10px;
     }
     .label-top-right a {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 20px;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 20px;
-      background: rgba(75,0,130,0.8);
-      border: 2px solid #fff;
-      border-radius: 8px;
-      transition: background-color .3s, transform .2s;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-      cursor: pointer;
-      display: inline-block;
-      z-index: 12;
+      font-family:'Press Start 2P', cursive;
+      font-size:20px; color:#fff;
+      padding:10px 20px;
+      background:rgba(75,0,130,0.8);
+      border:2px solid #fff; border-radius:8px;
+      text-decoration:none;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+      transition:background .3s,transform .2s;
+      cursor:pointer;
     }
     .label-top-right a:hover {
-      background: rgba(106,13,173,0.9);
-      transform: scale(1.05);
+      background:rgba(106,13,173,0.9);
+      transform:scale(1.05);
     }
 
-    /* Hero-Bereich */
+    /* Hero */
     .hero {
-      position: relative;
-      width: 100%;
-      height: 300vh; /* Desktop: füllt drei Bildschirme */
-      background-image: url('popprop-hous.png'); /* Pfad zu deinem Bild */
-      background-position: top center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      z-index: 1;
+      position:relative; width:100%; height:300vh;
+      background:url('popprop-hous.png') top center / cover no-repeat;
+      z-index:1;
     }
-    /* Mobile: Hero-Höhe reduzieren */
-    @media (max-width: 600px) {
-      .hero {
-        height: 100vh; /* mobile: nur ein Bildschirm hoch */
-      }
+    @media (max-width:600px){ .hero{height:100vh;} }
+
+    /* Desktop-Textblöcke */
+    .text-block, .text-block-right {
+      position:absolute; width:25vw; max-width:300px;
+      font-family:'Cinzel', serif; font-size:14px; line-height:1.6;
+      color:#fff; text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+      z-index:2;
+    }
+    .text-block { top:120vh; left:5vw; }
+    .text-block-right { top:120vh; left:60vw; }
+    @media (max-width:600px){
+      .text-block, .text-block-right { display:none; }
     }
 
-    /* Gemeinsamer Stil für Textblöcke (Desktop) */
-    .text-block,
-    .text-block-right {
-      position: absolute;
-      width: 25vw;
-      max-width: 300px;
-      background: none;
-      padding: 0;
-      font-family: 'Cinzel', serif;
-      font-size: 14px;
-      line-height: 1.6;
-      color: #fff;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-      z-index: 2;
-    }
-    .text-block p,
-    .text-block-right p {
-      margin-bottom: 1em;
-    }
-    /* Linker Textblock (Desktop) */
-    .text-block {
-      top: 120vh;
-      left: 5vw;
-    }
-    /* Rechter Textblock (Desktop) */
-    .text-block-right {
-      top: 120vh;
-      left: 60vw;
-    }
-    /* Auf Mobile Desktop-Textblöcke ausblenden */
-    @media (max-width: 600px) {
-      .text-block,
-      .text-block-right {
-        display: none;
-      }
-    }
-
-    /* Buttons im unteren Hero-Bereich */
+    /* Buttons */
     .buttons {
-      position: absolute;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      z-index: 2;
+      position:absolute; bottom:80px; left:50%;
+      transform:translateX(-50%);
+      text-align:center; z-index:2;
     }
-    /* Stil für die Contract Address */
     .mint-address {
-      color: #fff; /* Weiß */
-      font-weight: bold;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 14px;
-      margin-bottom: 8px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+      font-family:'Press Start 2P', cursive; font-weight:bold;
+      font-size:14px; margin-bottom:8px;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
     }
-    /* Link-Button */
     .link-box {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      display: inline-block;
-      margin: 0 10px;
-      padding: 10px 20px;
-      font-size: 18px;
-      background: rgba(75,0,130,0.8);
-      color: #fff;
-      text-decoration: none;
-      border: 3px solid #D4AF37;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(212,175,55,0.5);
-      transition: background .3s, transform .2s, box-shadow .3s;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+      font-family:'Playfair Display', serif; font-weight:700;
+      display:inline-block; margin:0 10px; padding:10px 20px;
+      font-size:18px;
+      background:rgba(75,0,130,0.8); color:#fff;
+      border:3px solid #D4AF37; border-radius:8px;
+      box-shadow:0 0 10px rgba(212,175,55,0.5);
+      transition:background .3s,transform .2s,box-shadow .3s;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+      text-decoration:none;
     }
     .link-box:hover {
-      background: rgba(106,13,173,0.9);
-      transform: scale(1.03);
-      box-shadow: 0 0 15px rgba(212,175,55,0.7);
+      background:rgba(106,13,173,0.9);
+      transform:scale(1.03);
+      box-shadow:0 0 15px rgba(212,175,55,0.7);
     }
-    .follow-x {
-      display: inline-block;
-      margin: 0 10px;
-      width: 120px;
-      vertical-align: middle;
+    .follow-x, .follow-telegram {
+      display:inline-block; margin:0 10px;
+      width:120px; vertical-align:middle;
     }
-    .follow-x img {
-      width: 100%;
-      opacity: 0.8;
-      border: none;
+    .follow-x img, .follow-telegram img {
+      width:100%; opacity:0.8; border:none;
     }
 
-    /* Regenbogen-Text ganz unten im Hero */
-    .hero-footer {
-      position: absolute;
-      top: 300vh; /* Desktop: bei 300vh */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 0.8rem;
-      padding-bottom: 20px;
-      z-index: 2;
-    }
-    /* Mobile: Regenbogen-Zeile bei 100vh positionieren */
-    @media (max-width: 600px) {
-      .hero-footer {
-        top: 100vh;
+    /* Telegram unter X nur mobil */
+    @media(max-width:600px){
+      .buttons .follow-telegram {
+        display:block; margin:8px auto 0;
       }
     }
+
+    /* Regenbogen-Footer */
+    .hero-footer {
+      position:absolute; left:50%; width:100%; text-align:center;
+      font-family:'Playfair Display', serif; font-size:0.8rem;
+      padding-bottom:20px; z-index:2;
+      top:300vh; transform:translateX(-50%);
+    }
+    @media(max-width:600px){ .hero-footer{top:100vh;} }
     .hero-footer span {
-      background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
+      background:linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      display:inline-block;
     }
 
     /* Modal */
     #dappModal {
-      display: none;
-      position: fixed;
-      z-index: 20;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      align-items: center;
-      justify-content: center;
+      display:none; position:fixed; top:0; left:0;
+      width:100%; height:100%; background:rgba(0,0,0,0.85);
+      align-items:center; justify-content:center; z-index:20;
     }
     #dappModalContent {
-      background: rgba(75,0,130,0.95);
-      padding: 20px;
-      border: 3px solid #fff;
-      border-radius: 12px;
-      text-align: center;
-      width: 90%;
-      max-width: 400px;
+      background:rgba(75,0,130,0.95); padding:20px;
+      border:3px solid #fff; border-radius:12px;
+      text-align:center; width:90%; max-width:400px;
     }
-    #dappModalContent p,
-    #dappModalContent button {
-      font-family: 'Press Start 2P', cursive;
-      color: #fff;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    #dappModalContent p, #dappModalContent button {
+      font-family:'Press Start 2P', cursive; color:#fff;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
     }
     #dappModalContent button {
-      margin: 10px auto;
-      padding: 10px 20px;
-      background: rgba(106,13,173,0.9);
-      border: 2px solid #fff;
-      border-radius: 8px;
-      cursor: pointer;
-      display: block;
-      font-size: 0.8rem;
+      margin:10px auto; padding:10px 20px;
+      background:rgba(106,13,173,0.9); border:2px solid #fff;
+      border-radius:8px; cursor:pointer; display:block;
+      font-size:0.8rem;
     }
     #dappModalContent button:hover {
-      background: rgba(128,20,200,0.9);
+      background:rgba(128,20,200,0.9);
     }
 
-    /* Mobile-spezifischer Textcontainer direkt unter Hero (nach Regenbogen-Zeile) */
-    @media (max-width: 600px) {
+    /* Mobile-Textcontainer */
+    @media(max-width:600px){
       .mobile-text-container {
-        display: block;
-        position: relative;
-        width: 90%;
-        max-width: 400px;
-        margin: 0 auto;
-        padding: 10px;
-        font-family: 'Cinzel', serif;
-        font-size: 14px;
-        line-height: 1.6;
-        color: #fff;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-        margin-top: 4em; /* Bereits tiefer positioniert */
+        display:block; position:relative;
+        width:90%; max-width:400px; margin:0 auto;
+        padding:10px; font-family:'Cinzel', serif;
+        font-size:14px; line-height:1.6;
+        color:#fff; text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+        margin-top:4em;
       }
-      /* Contract Address auf Mobile noch kleiner */
-      .mint-address {
-        font-size: 8px;
-      }
-      /* Spezifisch: linkes Label und DAPP-Button kleiner */
-      .label-top-left {
-        font-size: 6px;
-        top: 4px;
-        left: 6px;
-      }
-      .label-top-left .rainbow-line {
-        height: 1px;
-        margin-top: 3px;
-      }
-      .label-top-right a {
-        font-size: 14px;
-        padding: 6px 12px;
-      }
-      /* Site-Title etwas kleiner auf Mobile */
-      .site-title {
-        font-size: 18px;
-        top: 6px;
-      }
+      .mint-address { font-size:8px; }
+      .label-top-left { font-size:6px; top:4px; left:6px; }
+      .label-top-left .rainbow-line { height:1px; margin-top:3px; }
+      .label-top-right a { font-size:14px; padding:6px 12px; }
+      .site-title { font-size:18px; top:6px; }
     }
-    @media (min-width: 601px) {
-      .mobile-text-container {
-        display: none;
-      }
+    @media(min-width:601px){
+      .mobile-text-container { display:none; }
     }
   </style>
 </head>
 <body>
-  <!-- POPPROP Titel über der Solana-Sonne -->
   <div class="site-title">POPPROP</div>
 
-  <!-- Labels oben -->
   <div class="label-top-left">
     Meme estate on Solana<br>
     Something is coming.
@@ -318,9 +192,8 @@
     <a onclick="document.getElementById('dappModal').style.display='flex'">DAPP</a>
   </div>
 
-  <!-- Hero-Bereich -->
   <div class="hero">
-    <!-- Linker Textblock (Desktop) -->
+    <!-- Linker Desktop-Block -->
     <div class="text-block">
       <p><strong>The Story of PopProp</strong></p>
       <p>PopProp began as an experiment: a small meme project on Solana that demonstrated the power of community. From initial pixel houses arose the idea that a community can decide for itself what holds value.</p>
@@ -330,17 +203,16 @@
       <p>Be part of the story—post, share, and co-create. Because in PopProp, the crowd decides.</p>
     </div>
 
-    <!-- Rechter Textblock (Desktop) -->
+    <!-- Rechter Desktop-Block -->
     <div class="text-block-right">
       <p><strong>PopProp – Meme-RWA, Community in Control</strong></p>
-      <p>Could the community decide that a meme becomes a real asset? What if countless users collectively declare pixel houses as “land” and determine its value? Just a thought…</p>
-      <p>PopProp (POP) presents itself as “Real World Asset,” und the true power liegt bei den Menschen dahinter: every decision, every trade, and every meme shapes its value direkt. This ist no joke—it’s an experiment in which the community decides the fate of bits und pixels. Who says land ownership requires solid ground when a community can give it life?</p>
-      <p>Is it really not an investment if you all “buy into” pixel properties und set ihr price durch your actions und interactions? Perhaps hinter every smart contract liegt a mirror of what genuine collective decisions can achieve. Take it seriously: PopProp shows how a community kann redefine meme culture und RWAs. Only those who teilnehmen will feel the power of the crowd.</p>
+      <p>Could the community decide that a meme becomes a real asset? What if countless users collectively declare pixel houses as “land” and set their value? Just a thought…</p>
+      <p>PopProp (POP) presents itself as a “Real World Asset,” and the true power lies with the people behind it: every decision, every trade, and every meme shapes its value directly. This is no joke—it’s an experiment where the community decides the fate of bits and pixels. Who says land ownership needs solid ground when a community can give it life?</p>
+      <p>Is it really not an investment if you all “buy into” pixel properties and determine their price through your actions and interactions? Perhaps behind every smart contract lies a mirror of what genuine collective decisions can achieve. Take it seriously: PopProp shows how a community can redefine meme culture and RWAs. Only those who participate will feel the power of the crowd.</p>
     </div>
 
-    <!-- Buttons knapp über Bildende -->
+    <!-- Buttons -->
     <div class="buttons">
-      <!-- Neuer Text über den Buttons in Weiß -->
       <div class="mint-address">Contract Address: 6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump</div>
       <a class="link-box"
          href="https://pump.fun/coin/6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump"
@@ -350,31 +222,35 @@
           <img src="x-icon.png" alt="Follow on X">
         </a>
       </span>
+      <span class="follow-telegram">
+        <a href="https://t.me/poppropmeme" target="_blank">
+          <img src="telegram.png" alt="Join on Telegram">
+        </a>
+      </span>
     </div>
 
-    <!-- Regenbogen-Text ganz unten -->
+    <!-- Regenbogen-Footer -->
     <div class="hero-footer">
       <span>PopProp is a project for everyone – decentralized, community-driven, meme-based, diverse.<br>
-            Art meets RWA: PopProp merges meme culture mit RWA through an engaged community.</span>
+            Art meets RWA: PopProp merges meme culture with RWA through an engaged community.</span>
     </div>
   </div>
-  <!-- Ende Hero -->
 
-  <!-- Mobile-Textcontainer: direkt unter Hero (nach Regenbogen-Zeile) -->
+  <!-- Mobile-Textcontainer -->
   <div class="mobile-text-container">
     <div>
       <p><strong>The Story of PopProp</strong></p>
       <p>PopProp began as an experiment: a small meme project on Solana that demonstrated the power of community. From initial pixel houses arose the idea that a community can decide for itself what holds value.</p>
       <p>With each meme contribution, every shared screenshot, and every interaction, the community shaped the narrative further. The pillar at the center symbolizes the community’s solid core, while the surrounding skyscrapers represent creative exchange.</p>
-      <p>PopProp teaches us that collective decisions on the blockchain can be a new form of “value creation”: not only real assets, but also memes, ideas, und digital art gain meaning durch joint action.</p>
-      <p>The story of PopProp is open und incomplete: it lives through your participation. Whether you contribute a new meme, bring in a subjective valuation, oder simply watch und discuss—every interaction shapes the narrative weiter. Die Säule in der Mitte kann nur stehen, wenn die Community sie stützt.</p>
+      <p>PopProp teaches us that collective decisions on the blockchain can be a new form of “value creation”: not only real assets, but also memes, ideas, und digital art gain meaning through joint action.</p>
+      <p>The story of PopProp is open und incomplete: it lives through your participation. Whether you contribute a new meme, bring in a subjective valuation, oder einfach zuschaust und diskutierst—jede Interaktion prägt das Narrativ weiter. Die Säule in der Mitte kann nur stehen, wenn die Community sie stützt.</p>
       <p>Be part of the story—post, share, and co-create. Because in PopProp, the crowd decides.</p>
     </div>
-    <div style="margin-top: 1em;">
+    <div style="margin-top:1em;">
       <p><strong>PopProp – Meme-RWA, Community in Control</strong></p>
-      <p>Could the community decide that a meme becomes a real asset? What if countless users collectively declare pixel houses as “land” und determine its value? Just a thought…</p>
-      <p>PopProp (POP) presents itself as “Real World Asset,” und the true power liegt bei den Menschen dahinter: every decision, every trade, and every meme shapes its value direkt. This ist no joke—it’s an experiment in which the community decides the fate of bits und pixels. Who says land ownership requires solid ground when a community can give it life?</p>
-      <p>Is it really not an investment if you all “buy into” pixel properties und set ihr price durch your actions und interactions? Perhaps hinter every smart contract liegt a mirror of what genuine collective decisions can achieve. Take it seriously: PopProp shows how a community kann redefine meme culture und RWAs. Only those who teilnehmen will feel the power of the crowd.</p>
+      <p>Could the community decide that a meme becomes a real asset? What if countless users collectively declare pixel houses as “land” und set their value? Just a thought…</p>
+      <p>PopProp (POP) presents itself as a “Real World Asset,” and the true power liegt bei den Menschen dahinter: every decision, every trade, and every meme shapes its value directly. This is no joke—it’s an experiment where the community decides the fate of bits und pixels. Who says land ownership needs solid ground when a community can give it life?</p>
+      <p>Is it really not an investment if you all “buy into” pixel properties und determine ihr price durch your actions und interactions? Perhaps hinter jedem Smart Contract liegt ein Spiegel dessen, was genuine collective decisions bewirken können. Take it seriously: PopProp shows how a community can redefine meme culture und RWAs. Only those who participate will feel the power of the crowd.</p>
     </div>
   </div>
 
@@ -394,12 +270,9 @@
     const TOKEN_MINT = "6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump";
     async function getTokenBalance(pubkey) {
       const res = await fetch('https://api.mainnet-beta.solana.com', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          jsonrpc: '2.0', id: 1, method: 'getTokenAccountsByOwner',
-          params: [pubkey, {mint: TOKEN_MINT}, {encoding: 'jsonParsed'}]
-        })
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({jsonrpc:'2.0',id:1,method:'getTokenAccountsByOwner',params:[pubkey,{mint:TOKEN_MINT},{encoding:'jsonParsed'}]})
       });
       const data = await res.json();
       try {
@@ -409,18 +282,15 @@
         document.getElementById('balance-display').innerText = '💰 POP Balance: 0';
       }
     }
-    const connectToPhantom = async () => {
-      if (!window.solana || !window.solana.isPhantom) {
-        alert('Please install Phantom.'); return;
-      }
+    const connectToPhantom = async ()=> {
+      if(!window.solana||!window.solana.isPhantom){ alert('Please install Phantom.'); return;}
       try {
         const resp = await window.solana.connect();
-        document.getElementById('phantom-status').innerText =
-          '✅ Connected: ' + resp.publicKey.toString();
+        document.getElementById('phantom-status').innerText = '✅ Connected: '+resp.publicKey.toString();
         getTokenBalance(resp.publicKey.toString());
-      } catch {}
+      } catch{}
     };
-    const fakeStake = () => alert('🎉 You have successfully staked your POP tokens! (Just for fun)');
+    const fakeStake = ()=> alert('🎉 You have successfully staked your POP tokens! (Just for fun)');
   </script>
 </body>
 </html>
