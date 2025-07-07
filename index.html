@@ -50,11 +50,12 @@
       text-decoration:none;
       text-shadow:1px 1px 2px rgba(0,0,0,0.7);
       transition:background .3s,transform .2s;
-      cursor:pointer;
+      cursor: default;
+      pointer-events: none;
     }
     .label-top-right a:hover {
-      background:rgba(106,13,173,0.9);
-      transform:scale(1.05);
+      background:rgba(75,0,130,0.8);
+      transform:none;
     }
 
     /* Hero */
@@ -137,30 +138,9 @@
       display:inline-block;
     }
 
-    /* Modal */
-    #dappModal {
-      display:none; position:fixed; top:0; left:0;
-      width:100%; height:100%; background:rgba(0,0,0,0.85);
-      align-items:center; justify-content:center; z-index:20;
-    }
-    #dappModalContent {
-      background:rgba(75,0,130,0.95); padding:20px;
-      border:3px solid #fff; border-radius:12px;
-      text-align:center; width:90%; max-width:400px;
-    }
-    #dappModalContent p, #dappModalContent button {
-      font-family:'Press Start 2P', cursive; color:#fff;
-      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
-    }
-    #dappModalContent button {
-      margin:10px auto; padding:10px 20px;
-      background:rgba(106,13,173,0.9); border:2px solid #fff;
-      border-radius:8px; cursor:pointer; display:block;
-      font-size:0.8rem;
-    }
-    #dappModalContent button:hover {
-      background:rgba(128,20,200,0.9);
-    }
+    /* Modal (komplett deaktiviert) */
+    #dappModal { display:none !important; }
+    #dappModalContent { display:none !important; }
 
     /* Mobile-Textcontainer */
     @media(max-width:600px){
@@ -192,7 +172,7 @@
     <div class="rainbow-line"></div>
   </div>
   <div class="label-top-right">
-    <a onclick="document.getElementById('dappModal').style.display='flex'">DAPP</a>
+    <a>DAPP</a>
   </div>
 
   <div class="hero">
@@ -243,44 +223,5 @@
       <p>Is it really not an investment if you all “buy into” pixel properties and determine their price through your actions and interactions? Perhaps behind every smart contract lies a mirror of what genuine collective decisions can achieve. Take it seriously: PopProp shows how a community can redefine meme culture and RWAs. Only those who participate will feel the power of the crowd.</p>
     </div>
   </div>
-
-  <!-- DAPP Modal -->
-  <div id="dappModal">
-    <div id="dappModalContent">
-      <p>🔗 Connect with Phantom</p>
-      <button onclick="connectToPhantom()">Connect Wallet</button>
-      <p id="phantom-status">🔌 Not connected</p>
-      <div id="balance-display"></div>
-      <button id="stakeButton" onclick="fakeStake()">🎮 Could something be coming?</button>
-      <button onclick="document.getElementById('dappModal').style.display='none'">Close</button>
-    </div>
-  </div>
-
-  <script>
-    const TOKEN_MINT = "6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump";
-    async function getTokenBalance(pubkey) {
-      const res = await fetch('https://api.mainnet-beta.solana.com', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({jsonrpc:'2.0',id:1,method:'getTokenAccountsByOwner',params:[pubkey,{mint:TOKEN_MINT},{encoding:'jsonParsed'}]})
-      });
-      const data = await res.json();
-      try {
-        const amt = data.result.value[0].account.data.parsed.info.tokenAmount.uiAmount;
-        document.getElementById('balance-display').innerText = `💰 POP Balance: ${amt}`;
-      } catch {
-        document.getElementById('balance-display').innerText = '💰 POP Balance: 0';
-      }
-    }
-    const connectToPhantom = async ()=> {
-      if(!window.solana||!window.solana.isPhantom){ alert('Please install Phantom.'); return; }
-      try {
-        const resp = await window.solana.connect();
-        document.getElementById('phantom-status').innerText = '✅ Connected: '+resp.publicKey.toString();
-        getTokenBalance(resp.publicKey.toString());
-      } catch {}
-    };
-    const fakeStake = ()=> alert('🎉 You have successfully staked your POP tokens! (Just for fun)');
-  </script>
 </body>
 </html>
