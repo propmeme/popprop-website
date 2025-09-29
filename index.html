@@ -1,166 +1,89 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PopProp – Real Estate Meets Meme Culture</title>
+  <title>PopProp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Sora:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap');
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html, body {
-      width:100%; height:100%;
-      overflow-x:hidden; overflow-y:auto;
-      background:#000; color:#fff;
-      font-family:'Press Start 2P', cursive;
+    :root{
+      --bg:#0B0E14; --fg:#E6E8EB; --muted:#A3A9B6;
+      --g1:#14F195; --g2:#9945FF; --cyan:#00E5FF;
     }
-
-    .site-title {
-      position:fixed; top:10px; left:50%;
-      transform:translateX(-50%);
-      font-family:'Cinzel', serif; font-weight:700;
-      font-size:24px; color:#fff;
-      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
-      z-index:11; pointer-events:none;
+    *{box-sizing:border-box;margin:0}
+    body{font-family:"Sora",system-ui,Arial;background:var(--bg);color:var(--fg);line-height:1.6}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    .hero{
+      min-height:78vh;display:grid;place-items:center;padding:32px 0;
+      background:
+        radial-gradient(60% 50% at 70% 10%, rgba(153,69,255,.15), transparent 60%),
+        radial-gradient(60% 50% at 30% 90%, rgba(20,241,149,.12), transparent 60%);
     }
-
-    .label-top-left, .label-top-right { position:fixed; z-index:12; }
-    .label-top-left {
-      top:5px; left:10px; font-size:8px; color:#fff;
-      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+    .glass{
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius:20px;padding:28px 24px;max-width:760px;width:100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.05);
     }
-    .label-top-left .rainbow-line {
-      margin-top:4px; height:2px; width:100%;
-      background:linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
-      border-radius:1px;
+    h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:clamp(28px,5vw,48px);letter-spacing:.3px}
+    .lead{color:var(--muted);margin-top:10px;margin-bottom:18px}
+    .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .cta{
+      display:inline-block;padding:14px 20px;border-radius:12px;text-decoration:none;color:#081015;
+      background: linear-gradient(90deg,var(--g1),var(--g2));font-weight:700;
+      box-shadow:0 10px 30px rgba(20,241,149,.25), 0 8px 24px rgba(153,69,255,.2);
     }
-    .label-top-right {
-      top:5px; right:10px;
+    .badge{
+      padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);
+      color:var(--fg);background:rgba(255,255,255,.04);font-family:monospace;
+      white-space:nowrap;overflow:auto;max-width:100%;
     }
-    .label-top-right a {
-      font-family:'Press Start 2P', cursive;
-      font-size:20px; color:#fff;
-      padding:10px 20px;
-      background:rgba(75,0,130,0.8);
-      border:2px solid #fff; border-radius:8px;
-      text-decoration:none;
-      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
-      transition:background .3s,transform .2s;
-      cursor: default;
-      pointer-events: none;
-    }
-    .label-top-right a:hover {
-      background:rgba(75,0,130,0.8);
-      transform:none;
-    }
-
-    .hero {
-      position:relative; width:100%; height:300vh;
-      background:url('popprop-hous.png') top center / cover no-repeat;
-      z-index:1;
-    }
-    @media (max-width:600px) {
-      .hero { height:100vh; }
-    }
-
-    /* Buttons + E-Mail */
-    .buttons {
-      position:absolute; bottom:80px; left:50%;
-      transform:translateX(-50%);
-      text-align:center; z-index:2;
-    }
-    @media (max-width:600px){
-      .buttons { bottom:10px; }
-    }
-    .mint-address {
-      font-family:'Press Start 2P', cursive; font-weight:bold;
-      font-size:14px; margin-bottom:8px;
-      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
-    }
-    .link-box {
-      font-family:'Playfair Display', serif; font-weight:700;
-      display:inline-block; margin:0 10px; padding:10px 20px;
-      font-size:18px;
-      background:rgba(75,0,130,0.8); color:#fff;
-      border:3px solid #D4AF37; border-radius:8px;
-      box-shadow:0 0 10px rgba(212,175,55,0.5);
-      transition:background .3s,transform .2s,box-shadow .3s;
-      text-shadow:1px 1px 2px rgba(0,0,0,0.7);
-      text-decoration:none;
-    }
-    .link-box:hover {
-      background:rgba(106,13,173,0.9);
-      transform:scale(1.03);
-      box-shadow:0 0 15px rgba(212,175,55,0.7);
-    }
-    .follow-x, .follow-telegram {
-      display:inline-block; margin:0 10px;
-      width:120px; vertical-align:middle;
-    }
-    .follow-x img, .follow-telegram img {
-      width:100%; opacity:0.8; border:none;
-    }
-
-    /* Support E-Mail */
-    .support-email {
-      display:block;
-      margin-top:12px;
-      font-family:'Press Start 2P', cursive;
-      font-size:12px;
-    }
-    .support-email a {
-      color:#fff; text-decoration:underline;
-    }
-
-    @media (max-width:600px){
-      .follow-telegram { display:block; margin:8px auto 0; }
-      .support-email { font-size:10px; }
-    }
-
-    .hero-footer {
-      position:absolute; left:50%; width:100%; text-align:center;
-      font-family:'Playfair Display', serif; font-size:0.8rem;
-      padding-bottom:20px; z-index:2;
-      top:300vh; transform:translateX(-50%);
-    }
-    @media(max-width:600px){ .hero-footer{top:100vh;} }
-    .hero-footer span {
-      background:linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-      display:inline-block;
-    }
+    .social img{height:44px;width:auto;opacity:.9;transition:.2s}
+    .social img:hover{transform:translateY(-2px);opacity:1}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:34px}
+    .card{border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px;background:#0E141D}
+    footer{margin:40px 0 18px;color:var(--muted);font-size:14px;text-align:center}
   </style>
 </head>
 <body>
-  <div class="site-title">POPPROP</div>
+  <header class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <img src="Logo.png" alt="PopProp" style="height:38px;border-radius:8px">
+      <strong style="font-family:'Space Grotesk',sans-serif">PopProp</strong>
+    </div>
+    <nav class="row" style="gap:18px;font-weight:600;font-family:'Space Grotesk'">
+      <a href="#how" style="color:var(--fg);text-decoration:none">How it works</a>
+      <a href="#community" style="color:var(--fg);text-decoration:none">Community</a>
+      <a class="cta" href="https://pump.fun/coin/6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump" target="_blank" rel="noopener">Buy on Pump.fun</a>
+    </nav>
+  </header>
 
-  <div class="label-top-left">
-    Meme estate on Solana<br>
-    Something is coming.
-    <div class="rainbow-line"></div>
-  </div>
-  <div class="label-top-right">
-    <a>DAPP</a>
-  </div>
-
-  <div class="hero">
-    <div class="buttons">
-      <div style="text-align:center; margin-bottom:15px;">
-        <img src="Logo.png" alt="PopProp Logo" style="width:120px; height:auto;">
+  <section class="hero">
+    <div class="glass">
+      <h1>Collective value, born from memes.</h1>
+      <p class="lead">PopProp turns community decisions into on-chain significance. Join the experiment and help define what’s valuable.</p>
+      <div class="row" style="margin-bottom:14px">
+        <a class="cta" href="https://pump.fun/coin/6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump" target="_blank" rel="noopener">Visit PopProp on Pump.fun</a>
+        <span class="badge">Contract: 6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump</span>
       </div>
-      <div class="mint-address">Contract Address: 6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump</div>
-      <a class="link-box" href="https://pump.fun/coin/6yU2NSwQMDZqinyX8c1tPNkzCfhK2U4q9bdk4s2ypump" target="_blank">Visit PopProp on Pump.fun</a>
-      <span class="follow-x">
-        <a href="https://x.com/propmeme1" target="_blank"><img src="x-icon.png" alt="Follow on X"></a>
-      </span>
-      <span class="follow-telegram"><a href="https://t.me/poppropmeme" target="_blank"><img src="telegram.png" alt="Join on Telegram"></a></span>
-      <div class="support-email">Support: <a href="mailto:prop.meme@gmx.de">prop.meme@gmx.de</a></div>
+      <div class="row social">
+        <a href="https://x.com/propmeme1" target="_blank" rel="noopener"><img src="x-icon.png" alt="X" /></a>
+        <a href="https://t.me/poppropmeme" target="_blank" rel="noopener"><img src="telegram.png" alt="Telegram" /></a>
+      </div>
     </div>
+  </section>
 
-    <div class="hero-footer">
-      <span>PopProp is a project for everyone – decentralized, community-driven, meme-based, diverse.<br>
-      Art meets RWA: PopProp merges meme culture with RWA through an engaged community.</span>
+  <main class="wrap" id="how">
+    <div class="grid">
+      <div class="card"><h3 style="font-family:'Space Grotesk'">1. Collect</h3><p>Gather memes & pixels. Bring your own property to the map.</p></div>
+      <div class="card"><h3 style="font-family:'Space Grotesk'">2. Decide</h3><p>Votes and vibes. The community decides what matters.</p></div>
+      <div class="card"><h3 style="font-family:'Space Grotesk'">3. Value</h3><p>On-chain signals turn culture into collective value.</p></div>
     </div>
-  </div>
+  </main>
+
+  <footer>
+    Support: <a href="mailto:prop.meme@gmx.de" style="color:var(--cyan);text-decoration:none">prop.meme@gmx.de</a>
+  </footer>
 </body>
 </html>
