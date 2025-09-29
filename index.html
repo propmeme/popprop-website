@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PopProp – Real Estate Meets Meme Culture</title>
   <style>
-    /* Fonts importieren */
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap');
 
-    /* Reset */
     * { margin:0; padding:0; box-sizing:border-box; }
     html, body {
       width:100%; height:100%;
@@ -17,7 +15,6 @@
       font-family:'Press Start 2P', cursive;
     }
 
-    /* POPPROP Titel */
     .site-title {
       position:fixed; top:10px; left:50%;
       transform:translateX(-50%);
@@ -27,7 +24,6 @@
       z-index:11; pointer-events:none;
     }
 
-    /* Labels oben */
     .label-top-left, .label-top-right { position:fixed; z-index:12; }
     .label-top-left {
       top:5px; left:10px; font-size:8px; color:#fff;
@@ -58,7 +54,6 @@
       transform:none;
     }
 
-    /* Hero */
     .hero {
       position:relative; width:100%; height:300vh;
       background:url('popprop-hous.png') top center / cover no-repeat;
@@ -68,20 +63,7 @@
       .hero { height:100vh; }
     }
 
-    /* Desktop-Textblöcke */
-    .text-block, .text-block-right {
-      position:absolute; width:25vw; max-width:300px;
-      font-family:'Cinzel', serif; font-size:14px; line-height:1.6;
-      color:#fff; text-shadow:1px 1px 2px rgba(0,0,0,0.7);
-      z-index:2;
-    }
-    .text-block { top:120vh; left:5vw; }
-    .text-block-right { top:120vh; left:60vw; }
-    @media (max-width:600px){
-      .text-block, .text-block-right { display:none; }
-    }
-
-    /* Buttons */
+    /* Buttons + E-Mail */
     .buttons {
       position:absolute; bottom:80px; left:50%;
       transform:translateX(-50%);
@@ -119,26 +101,22 @@
       width:100%; opacity:0.8; border:none;
     }
 
-    /* Support-Mail unter den Icons */
-    .support-mail {
-      margin-top:15px;
+    /* Support E-Mail */
+    .support-email {
+      display:block;
+      margin-top:12px;
       font-family:'Press Start 2P', cursive;
       font-size:12px;
     }
-    .support-mail a {
-      color:#fff;
-      text-decoration:none;
-    }
-    .support-mail a:hover {
-      text-decoration:underline;
+    .support-email a {
+      color:#fff; text-decoration:underline;
     }
 
-    /* Telegram nur mobil unter X */
     @media (max-width:600px){
       .follow-telegram { display:block; margin:8px auto 0; }
+      .support-email { font-size:10px; }
     }
 
-    /* Regenbogen-Footer */
     .hero-footer {
       position:absolute; left:50%; width:100%; text-align:center;
       font-family:'Playfair Display', serif; font-size:0.8rem;
@@ -150,30 +128,6 @@
       background:linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
       -webkit-background-clip:text; -webkit-text-fill-color:transparent;
       display:inline-block;
-    }
-
-    /* Modal (komplett deaktiviert) */
-    #dappModal { display:none !important; }
-    #dappModalContent { display:none !important; }
-
-    /* Mobile-Textcontainer */
-    @media(max-width:600px){
-      .mobile-text-container {
-        display:block; position:relative;
-        width:90%; max-width:400px; margin:0 auto;
-        padding:10px; font-family:'Cinzel', serif;
-        font-size:14px; line-height:1.6;
-        color:#fff; text-shadow:1px 1px 2px rgba(0,0,0,0.7);
-        margin-top:4em;
-      }
-      .mint-address { font-size:8px; }
-      .label-top-left { font-size:6px; top:4px; left:6px; }
-      .label-top-left .rainbow-line { height:1px; margin-top:3px; }
-      .label-top-right a { font-size:14px; padding:6px 12px; }
-      .site-title { font-size:18px; top:6px; }
-    }
-    @media(min-width:601px){
-      .mobile-text-container { display:none; }
     }
   </style>
 </head>
@@ -190,24 +144,7 @@
   </div>
 
   <div class="hero">
-    <div class="text-block">
-      <p><strong>The Story of PopProp</strong></p>
-      <p>PopProp began as an experiment: a small meme project on Solana that demonstrated the power of community. From initial pixel houses arose the idea that a community can decide for itself what holds value.</p>
-      <p>With each meme contribution, every shared screenshot, and every interaction, the community shaped the narrative further. The pillar at the center symbolizes the community’s solid core, while the surrounding skyscrapers represent creative exchange.</p>
-      <p>PopProp teaches us that collective decisions on the blockchain can be a new form of “value creation”: not only real assets, but also memes, ideas, and digital art gain meaning through joint action.</p>
-      <p>The story of PopProp is open and incomplete: it lives through your participation. Whether you contribute a new meme, bring in a subjective valuation, or simply watch and discuss—every interaction shapes the narrative further. The pillar in the middle can only stand if the community supports it.</p>
-      <p>Be part of the story—post, share, and co-create. Because in PopProp, the crowd decides.</p>
-    </div>
-
-    <div class="text-block-right">
-      <p><strong>PopProp – Meme-RWA, Community in Control</strong></p>
-      <p>Could the community decide that a meme becomes a real asset? What if countless users collectively declare pixel houses as “land” and set their value? Just a thought…</p>
-      <p>PopProp (POP) presents itself as a “Real World Asset,” and the true power lies with the people behind it: every decision, every trade, and every meme shapes its value directly. This is no joke—it’s an experiment where the community decides the fate of bits and pixels. Who says land ownership needs solid ground when a community can give it life?</p>
-      <p>Is it really not an investment if you all “buy into” pixel properties and determine their price through your actions and interactions? Perhaps behind every smart contract lies a mirror of what genuine collective decisions can achieve. Take it seriously: PopProp shows how a community can redefine meme culture and RWAs. Only those who participate will feel the power of the crowd.</p>
-    </div>
-
     <div class="buttons">
-      <!-- LOGO -->
       <div style="text-align:center; margin-bottom:15px;">
         <img src="Logo.png" alt="PopProp Logo" style="width:120px; height:auto;">
       </div>
@@ -217,33 +154,12 @@
         <a href="https://x.com/propmeme1" target="_blank"><img src="x-icon.png" alt="Follow on X"></a>
       </span>
       <span class="follow-telegram"><a href="https://t.me/poppropmeme" target="_blank"><img src="telegram.png" alt="Join on Telegram"></a></span>
-
-      <!-- Support-Mail -->
-      <div class="support-mail">
-        <a href="mailto:prop.meme@gmx.de">Support: prop.meme@gmx.de</a>
-      </div>
+      <div class="support-email">Support: <a href="mailto:prop.meme@gmx.de">prop.meme@gmx.de</a></div>
     </div>
 
     <div class="hero-footer">
       <span>PopProp is a project for everyone – decentralized, community-driven, meme-based, diverse.<br>
       Art meets RWA: PopProp merges meme culture with RWA through an engaged community.</span>
-    </div>
-  </div>
-
-  <div class="mobile-text-container">
-    <div>
-      <p><strong>The Story of PopProp</strong></p>
-      <p>PopProp began as an experiment: a small meme project on Solana that demonstrated the power of community. From initial pixel houses arose the idea that a community can decide for itself what holds value.</p>
-      <p>With each meme contribution, every shared screenshot, and every interaction, the community shaped the narrative further. The pillar at the center symbolizes the community’s solid core, while the surrounding skyscrapers represent creative exchange.</p>
-      <p>PopProp teaches us that collective decisions on the blockchain can be a new form of “value creation”: not only real assets, but also memes, ideas, and digital art gain meaning through joint action.</p>
-      <p>The story of PopProp is open and incomplete: it lives through your participation. Whether you contribute a new meme, bring in a subjective valuation, or simply watch and discuss—every interaction shapes the narrative further. The pillar in the middle can only stand if the community supports it.</p>
-      <p>Be part of the story—post, share, and co-create. Because in PopProp, the crowd decides.</p>
-    </div>
-    <div style="margin-top:1em;">
-      <p><strong>PopProp – Meme-RWA, Community in Control</strong></p>
-      <p>Could the community decide that a meme becomes a real asset? What if countless users collectively declare pixel houses as “land” and set their value? Just a thought…</p>
-      <p>PopProp (POP) presents itself as a “Real World Asset,” and the true power lies with the people behind it: every decision, every trade, and every meme shapes its value directly. This is no joke—it’s an experiment where the community decides the fate of bits and pixels. Who says land ownership needs solid ground when a community can give it life?</p>
-      <p>Is it really not an investment if you all “buy into” pixel properties and determine their price through your actions and interactions? Perhaps behind every smart contract lies a mirror of what genuine collective decisions can achieve. Take it seriously: PopProp shows how a community can redefine meme culture and RWAs. Only those who participate will feel the power of the crowd.</p>
     </div>
   </div>
 </body>
