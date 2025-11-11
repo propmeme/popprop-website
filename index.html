@@ -1,6 +1,6 @@
 <!-- ===== Mini Loader: 1 Block, sicher, entfernt sich nach 6s ===== -->
 <div id="pp-mini" role="status" aria-busy="true" aria-label="Loading"
-     style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;background:#000;pointer-events:none;opacity:1;transition:opacity .4s ease;overflow:hidden;font-family:'Sora',system-ui,Arial">
+     style="position:fixed;inset:0;z-index:99999;display:grid;place-items:center;background:#000;pointer-events:none;opacity:1;transition:opacity .4s.ease;overflow:hidden;font-family:'Sora',system-ui,Arial">
   <style>
     /* alles unter #pp-mini, damit nichts kollidiert */
     #pp-mini .aurora{
@@ -52,15 +52,15 @@
       background: radial-gradient(closest-side, rgba(255,255,255,.22), transparent 70%),
                   radial-gradient(85% 85% at 50% 50%, currentColor, transparent 60%);
       opacity:0; transform:scale(.88);
-      transition:opacity .25s ease, transform .25s ease; mix-blend-mode:screen;
+      transition:opacity .25s ease, transform .25s.ease; mix-blend-mode:screen;
     }
     #pp-mini .cell.full::after{opacity:1;animation: miniPop .3s ease-out 1, miniBreathe 2.2s ease-in-out .3s infinite}
     @keyframes miniPop{0%{transform:scale(.88);filter:brightness(1)}60%{transform:scale(1.06);filter:brightness(1.35)}100%{transform:scale(1);filter:brightness(1.15)}}
     @keyframes miniBreathe{0%,100%{transform:scale(1);filter:brightness(1.05)}50%{transform:scale(1.03);filter:brightness(1.20)}}
 
     @media (prefers-reduced-motion:reduce){
-      #pp-mini .aurora,#pp-mini .label,#pp-mini .prg circle,#pp-mini .cell.full::after{animation:none !important}
-      #pp-mini .prg circle{stroke-dashoffset:0 !important}
+      #pp-mini .aurora,#pp-mini .label,#pp-mini .prg.circle,#pp-mini .cell.full::after{animation:none !important}
+      #pp-mini .prg.circle{stroke-dashoffset:0 !important}
     }
   </style>
 
@@ -172,8 +172,8 @@
       background: linear-gradient(180deg, var(--g1), var(--g2));
       opacity: .55;
       animation: beamShift 6s linear infinite, beamPulse 3.5s ease-in-out infinite;
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.85) 12%, rgba(0,0,0,.85) 88%, transparent 100%);
-              mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.85) 12%, rgba(0,0,0,.85) 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to.bottom, transparent 0%, rgba(0,0,0,.85) 12%, rgba(0,0,0,.85) 88%, transparent 100%);
+              mask-image: linear-gradient(to.bottom, transparent 0%, rgba(0,0,0,.85) 12%, rgba(0,0,0,.85) 88%, transparent 100%);
       box-shadow: 0 0 24px 6px rgba(20,241,149,.28), 0 0 36px 10px rgba(153,69,255,.24);
     }
     .sol-col.left  { left: 0;  }
@@ -201,10 +201,10 @@
     }
     .iframe-shell::before{content:"";display:block;padding-top:70%}
     .iframe-shell > iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    #game{margin-bottom:40px} /* etwas kompakter */
+    #game{margin-bottom:40px}
 
     /* ===== Vision ===== */
-    #vision{ margin-top:24px; margin-bottom:36px; } /* kompakter */
+    #vision{ margin-top:24px; margin-bottom:36px; }
     .vision-shell{
       backdrop-filter: blur(10px);
       background: rgba(255,255,255,.04);
@@ -213,7 +213,7 @@
       padding:24px 20px;
       max-width:900px; width:100%; margin:0 auto;
       box-shadow: 0 20px 60px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.05);
-      min-height: 820px; /* minimal kompakter */
+      min-height: 820px;
       display:flex; flex-direction:column; justify-content:flex-start;
     }
     .vision-shell .title{ font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:clamp(20px,3vw,28px); margin-bottom:10px; text-align:left; }
@@ -232,7 +232,7 @@
     }
 
     /* ===== NFT COMING SOON ===== */
-    #nft-soon{ max-width:1100px; margin:0 auto 28px auto; padding:0 24px; text-align:center; }
+    #nft-soon{ max-width:1100px; margin:0.auto 28px auto; padding:0 24px; text-align:center; }
     #nft-soon .nft-title{
       font-family:"Space Grotesk",sans-serif; font-weight:800; font-size:clamp(32px,6vw,72px);
       letter-spacing:.04em;
@@ -270,7 +270,7 @@
       background-size: 300% 100%;
       -webkit-background-clip:text; background-clip:text;
       -webkit-text-fill-color:transparent; color:transparent;
-      animation: gradientShift 10s linear infinite, titlePulse 3s ease-in-out infinite, titleGlow 3s ease-in-out infinite;
+      animation: gradientShift 10s linear infinite, titlePulse 3s ease-in-out infinite, titleGlow 3s.ease-in-out infinite;
     }
     @keyframes gradientShift { 0%{ background-position: 0% 50%; } 100%{ background-position: 300% 50%; } }
     @keyframes titlePulse { 0%,100%{ transform:translateY(0) scale(1) } 50%{ transform:translateY(-2px) scale(1.03) } }
@@ -295,7 +295,7 @@
     }
     .ring{
       position:absolute; inset:0; transform-style: preserve-3d;
-      animation: spin 34s linear infinite; /* etwas langsamer */
+      animation: spin 34s linear infinite;
     }
     .ring:hover{ animation-play-state: paused; }
     @keyframes spin { from{ transform: rotateY(0deg); } to{ transform: rotateY(-360deg); } }
@@ -313,13 +313,12 @@
     }
     .panel:hover{ transform: rotateY(calc(var(--i) * 36deg)) translateZ(var(--r, 400px)) translateY(-4px); }
     .panel img{ width:100%; height:100%; object-fit: contain; display:block; image-rendering: -webkit-optimize-contrast; }
-    .panel .label{ display:none; }
 
     /* ===== Hero ===== */
     .hero{
-      min-height:92vh;                 /* etwas kompakter */
+      min-height:92vh;
       display:grid; place-items:center; 
-      padding:24px 0 20px;             /* weniger Bottom-Padding */
+      padding:24px 0 20px;
       background:
         radial-gradient(20% 14% at 72% 14%, rgba(153,69,255,.07), transparent 62%),
         radial-gradient(18% 12% at 28% 86%, rgba(20,241,149,.05), transparent 60%);
@@ -338,7 +337,7 @@
     h1{
       font-family:"Space Grotesk",sans-serif; font-weight:700;
       font-size:clamp(28px,5vw,48px); letter-spacing:.3px;
-      text-align:center; margin-left:auto; margin-right:auto;
+      text-align:center;
     }
     .lead{color:var(--muted);margin-top:10px;margin-bottom:16px; text-align:center;}
 
@@ -349,14 +348,14 @@
     .social img:hover{transform:translateY(-2px);opacity:1}
 
     /* ===== How (3 Karten) ===== */
-    #how.wrap{ padding-top: 6px; padding-bottom: 6px; } /* dichter */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px} /* dichter */
+    #how.wrap{ padding-top: 6px; padding-bottom: 6px; }
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}
     .card{border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px;background:#0E141D}
 
     /* ===== Footer kompakt + links/rechts ===== */
     footer{
       color:var(--muted); font-size:14px;
-      margin: 18px 0 14px; /* höher */
+      margin: 18px 0 14px;
     }
     .site-footer{
       max-width:1100px; margin:0 auto; padding:0 24px;
@@ -371,7 +370,7 @@
     }
     footer a{ color:var(--cyan); text-decoration:none; }
 
-    /* Solana header logo (tiny left nudge + pulse) */
+    /* Solana header logo */
     .solana-logo { height:40px; width:auto; animation:pulse 2s infinite; margin-left:-6px; }
     @keyframes pulse {0%{transform:scale(1);}50%{transform:scale(1.15);}100%{transform:scale(1);} }
 
@@ -416,7 +415,7 @@
       box-shadow:0 20px 60px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.04);
       backdrop-filter: blur(10px);
       transform: translateY(8px); opacity:0;
-      transition: transform .26s ease, opacity .26s ease;
+      transition: transform .26s ease, opacity .26s.ease;
     }
     #pp-chat.open{ display:block; transform: translateY(0); opacity:1; }
 
@@ -433,7 +432,7 @@
     }
     #pp-chat .pp-title{ font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:14px; }
     #pp-chat .pp-close{
-      appearance:none; border:0; background:transparent; color:#081015;
+      appearance:none; border:0; background:transparent;
       background:linear-gradient(135deg,var(--g1),var(--g2));
       -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; 
       font-size:18px; line-height:1; cursor:pointer; opacity:.9;
@@ -480,8 +479,8 @@
   <div class="site-aurora" aria-hidden="true"></div>
 
   <!-- Solana side columns -->
-  <div class="sol-col left"></div>
-  <div class="sol-col right"></div>
+  <div class="sol-col.left"></div>
+  <div class="sol-col.right"></div>
 
   <!-- Header -->
   <header class="wrap">
@@ -641,7 +640,7 @@
     </div>
   </main>
 
-  <!-- Footer (kompakter, links Built by Solana / rechts Support) -->
+  <!-- Footer -->
   <footer>
     <div class="site-footer">
       <div class="footer-left">
@@ -651,6 +650,14 @@
         <span>Support:</span>
         <a href="mailto:prop.meme@gmx.de">prop.meme@gmx.de</a>
       </div>
+    </div>
+
+    <!-- Disclaimer unten (englisch, kompakt) -->
+    <div style="text-align:center;max-width:900px;margin:24px auto 12px auto;padding:12px 16px;font-size:13px;line-height:1.5;color:#A3A9B6;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;">
+      <strong>Disclaimer</strong><br>
+      PopProp is an experimental, community-driven Web3 game on Solana. The PopProp Token (POPPROP) is a meme and in-game token for the PopProp ecosystem and has no intrinsic value or promise of profit.<br><br>
+      PopProp is not a financial product or investment advice. All content on this website is for entertainment purposes only. PopProp is not affiliated with any real-world companies, properties, exchanges, or institutions.<br><br>
+      Use of this website, the game, and the token is at your own risk. No liability is assumed for any losses or damages resulting from its use.
     </div>
   </footer>
 
@@ -670,7 +677,7 @@
       <button class="pp-close" title="Close chat" aria-label="Close chat">×</button>
     </div>
     <div class="pp-body" id="pp-messages">
-      <div class="pp-msg bot">Hey! I’m your PopProp guide. Ask me about the game, the Web2→Web3 bridge, or Solana.</div>
+      <div class="pp-msg.bot">Hey! I’m your PopProp guide. Ask me about the game, the Web2→Web3 bridge, or Solana.</div>
     </div>
     <div class="pp-input">
       <input id="pp-input" type="text" placeholder="Type your question…" />
